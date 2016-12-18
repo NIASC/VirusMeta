@@ -1,0 +1,445 @@
+LOCUS       AY582799                7399 bp    DNA     linear   PRI 06-APR-2004
+DEFINITION  Homo sapiens actin, beta (ACTB) gene, complete cds.
+ACCESSION   AY582799
+VERSION     AY582799.1  GI:45934425
+KEYWORDS    .
+SOURCE      Homo sapiens (human)
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini;
+            Catarrhini; Hominidae; Homo.
+REFERENCE   1  (bases 1 to 7399)
+  AUTHORS   Livingston,R.J., Rieder,M.J., Chung,M.-W., Ritchie,T.K.,
+            Olson,A.N., Nguyen,C.P., Nguyen,D.A., Poel,C.L., Robertson,P.D.,
+            Schackwitz,W.S., Sherwood,J.K., Sherwood,A.M., Leithauser,B.J. and
+            Nickerson,D.A.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (25-MAR-2004) Genome Sciences, University of Washington,
+            1705 NE Pacific, Seattle, WA 98195, USA
+COMMENT     To cite this work please use:  NIEHS-SNPs, Environmental Genome
+            Project, NIEHS ES15478, Department of Genome Sciences, Seattle, WA
+            (URL: http://egp.gs.washington.edu).
+FEATURES             Location/Qualifiers
+     source          1..7399
+                     /organism="Homo sapiens"
+                     /mol_type="genomic DNA"
+                     /db_xref="taxon:9606"
+     variation       28
+                     /frequency="0.19"
+                     /replace="t"
+     variation       174..179
+                     /frequency="0.62"
+                     /replace=""
+     variation       304
+                     /frequency="0.01"
+                     /replace="a"
+     variation       307
+                     /frequency="0.01"
+                     /replace="c"
+     variation       541
+                     /frequency="0.39"
+                     /replace="a"
+     variation       768
+                     /frequency="0.01"
+                     /replace="a"
+     variation       1036
+                     /frequency="0.01"
+                     /replace="t"
+     variation       1078
+                     /frequency="0.38"
+                     /replace="g"
+     variation       1378
+                     /frequency="0.02"
+                     /replace="t"
+     variation       1383
+                     /frequency="0.01"
+                     /replace="t"
+     variation       1488
+                     /frequency="0.01"
+                     /replace="t"
+     gene            1945..5380
+                     /gene="ACTB"
+     mRNA            join(1945..2011,2872..3000,3135..3374,3816..4254,
+                     4350..4531,4644..5380)
+                     /gene="ACTB"
+                     /product="actin, beta"
+     variation       1945
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="t"
+     variation       2038
+                     /gene="ACTB"
+                     /frequency="0.23"
+                     /replace="t"
+     variation       2044..2065
+                     /gene="ACTB"
+                     /frequency="0.34"
+                     /replace=""
+     variation       2127
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace=""
+     variation       2219
+                     /gene="ACTB"
+                     /frequency="0.11"
+                     /replace="t"
+     variation       2323
+                     /gene="ACTB"
+                     /frequency="0.23"
+                     /replace="t"
+     variation       2335
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="a"
+     variation       2339
+                     /gene="ACTB"
+                     /frequency="0.10"
+                     /replace="t"
+     variation       2451
+                     /gene="ACTB"
+                     /frequency="0.34"
+                     /replace="t"
+     variation       2563
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="t"
+     variation       2839
+                     /gene="ACTB"
+                     /frequency="0.32"
+                     /replace="t"
+     variation       2868
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="t"
+     CDS             join(2878..3000,3135..3374,3816..4254,4350..4531,
+                     4644..4787)
+                     /gene="ACTB"
+                     /codon_start=1
+                     /product="actin, beta"
+                     /protein_id="AAS79319.1"
+                     /db_xref="GI:45934426"
+                     /translation="MDDDIAALVVDNGSGMCKAGFAGDDAPRAVFPSIVGRPRHQGVM
+                     VGMGQKDSYVGDEAQSKRGILTLKYPIEHGIVTNWDDMEKIWHHTFYNELRVAPEEHP
+                     VLLTEAPLNPKANREKMTQIMFETFNTPAMYVAIQAVLSLYASGRTTGIVMDSGDGVT
+                     HTVPIYEGYALPHAILRLDLAGRDLTDYLMKILTERGYSFTTTAEREIVRDIKEKLCY
+                     VALDFEQEMATAASSSSLEKSYELPDGQVITIGNERFRCPEALFQPSFLGMESCGIHE
+                     TTFNSIMKCDVDIRKDLYANTVLSGGTTMYPGIADRMQKEITALAPSTMKIKIIAPPE
+                     RKYSVWIGGSILASLSTFQQMWISKQEYDESGPSIVHRKCF"
+     variation       3077
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="g"
+     variation       3119
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="a"
+     variation       3131
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="t"
+     variation       3179
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="t"
+     variation       3404
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="g"
+     variation       3501
+                     /gene="ACTB"
+                     /frequency="0.02"
+                     /replace="a"
+     variation       3647
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="t"
+     variation       3696
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="a"
+     variation       3772
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="t"
+     variation       3778
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="t"
+     variation       3800
+                     /gene="ACTB"
+                     /frequency="0.49"
+                     /replace="c"
+     variation       3872
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="g"
+     variation       4447
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="c"
+     variation       4450
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="t"
+     variation       4489
+                     /gene="ACTB"
+                     /frequency="0.04"
+                     /replace="a"
+     variation       4498
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="t"
+     variation       4570
+                     /gene="ACTB"
+                     /frequency="0.35"
+                     /replace="a"
+     variation       4703
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="a"
+     variation       4887
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="c"
+     variation       4997
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="t"
+     variation       5054
+                     /gene="ACTB"
+                     /frequency="0.37"
+                     /replace="a"
+     variation       5240
+                     /gene="ACTB"
+                     /frequency="0.03"
+                     /replace="g"
+     variation       5292
+                     /gene="ACTB"
+                     /frequency="0.01"
+                     /replace="a"
+     variation       5495
+                     /frequency="0.35"
+                     /replace="c"
+     variation       5571
+                     /frequency="0.05"
+                     /replace=""
+     variation       5615
+                     /frequency="0.03"
+                     /replace=""
+     variation       5620
+                     /frequency="0.02"
+                     /replace="g"
+     variation       5785
+                     /frequency="0.01"
+                     /replace="t"
+     variation       5813
+                     /frequency="0.36"
+                     /replace="a"
+     variation       5820
+                     /frequency="0.01"
+                     /replace=""
+     variation       5864
+                     /frequency="0.04"
+                     /replace="g"
+     variation       5945
+                     /frequency="0.01"
+                     /replace="a"
+     variation       5972
+                     /frequency="0.42"
+                     /replace="g"
+     variation       5988
+                     /frequency="0.01"
+                     /replace="t"
+     variation       6049
+                     /frequency="0.01"
+                     /replace="g"
+     variation       6113
+                     /frequency="0.01"
+                     /replace="c"
+     variation       6152
+                     /frequency="0.01"
+                     /replace="a"
+     repeat_region   6167..6330
+                     /rpt_family="Alu"
+                     /rpt_type=dispersed
+     variation       6242
+                     /frequency="0.01"
+                     /replace="t"
+     variation       6244
+                     /frequency="0.07"
+                     /replace="t"
+     variation       6291
+                     /frequency="0.02"
+                     /replace="t"
+     variation       6308
+                     /frequency="0.09"
+                     /replace="a"
+     variation       6466
+                     /frequency="0.01"
+                     /replace="a"
+     variation       6561
+                     /frequency="0.01"
+                     /replace="a"
+     repeat_region   6708..6819
+                     /rpt_family="L2"
+                     /rpt_type=dispersed
+     variation       6732
+                     /frequency="0.06"
+                     /replace="c"
+     variation       6741
+                     /frequency="0.01"
+                     /replace="t"
+     variation       6846
+                     /frequency="0.01"
+                     /replace="c"
+     variation       6860..6863
+                     /frequency="0.02"
+                     /replace=""
+     variation       6862
+                     /frequency="0.01"
+                     /replace="c"
+     variation       6900
+                     /frequency="0.01"
+                     /replace="c"
+     repeat_region   6917..7146
+                     /rpt_family="L2"
+                     /rpt_type=dispersed
+     variation       6922..6941
+                     /frequency="0.97"
+                     /replace=""
+     variation       6962..6965
+                     /frequency="0.99"
+                     /replace=""
+     variation       7031
+                     /frequency="0.01"
+                     /replace="t"
+     repeat_region   7228..7379
+                     /rpt_family="Alu"
+                     /rpt_type=dispersed
+ORIGIN      
+        1 acctgacaac ctctcatccc tgctctgcag atccggtccc atccccactg cccaccccac
+       61 ccccccagca ctccacccag ttcaacgttc cacgaacccc cagaaccagc cctcatcaac
+      121 aggcagcaag aagggccccc cgcccatcgc cccacaacgc cagccgggtg aactgtagcg
+      181 ttggcaggtc ctgaggcagc tggcaagacg cctgcagctg aaagatacaa ggccagggac
+      241 aggacagtcc catccccagg aggcagggag tatacaggct ggggaagttt gcccttgcgt
+      301 ggggtggtga tggaggaggc tcagcaagtc ttctggactg tgaacctgtg tctgccactg
+      361 tgtgctgggt ggtggtcatc tttcccacca ggctgtggcc tctgcaacct tcaagggagg
+      421 agcaggtccc attggctgag cacagccttg taccgtgaac tggaacaagc agcctccttc
+      481 ctggccacag gttccatgtc cttatatgga ctcatctttg cctattgcga cacacactca
+      541 gtgaacacct actacgcgct gcaaagagcc ccgcaggcct gaggtgcccc cacctcacca
+      601 ctcttcctat ttttgtgtaa aaatccagct tcttgtcacc acctccaagg agggggagga
+      661 ggaggaaggc aggttcctct aggctgagcc gaatgcccct ctgtggtccc acgccactga
+      721 tcgctgcatg cccaccacct gggtacacac agtctgtgat tcccggagca gaacggaccc
+      781 tgcccacccg gtcttgtgtg ctactcagtg gacagaccca aggcaagaaa gggtgacaag
+      841 gacagggtct tcccaggctg gctttgagtt cctagcaccg ccccgccccc aatcctctgt
+      901 ggcacatgga gtcttggtcc ccagagtccc ccagcggcct ccagatggtc tgggagggca
+      961 gttcagctgt ggctgcgcat agcagacata caacggacgg tgggcccaga cccaggctgt
+     1021 gtagacccag cccccccgcc ccgcagtgcc taggtcaccc actaacgccc caggccttgt
+     1081 cttggctggg cgtgactgtt accctcaaaa gcaggcagct ccagggtaaa aggtgccctg
+     1141 ccctgtagag cccaccttcc ttcccagggc tgcggctggg taggtttgta gccttcatca
+     1201 cgggccacct ccagccactg gaccgctggc ccctgccctg tcctggggag tgtggtcctg
+     1261 cgacttctaa gtggccgcaa gccacctgac tcccccaaca ccacactcta cctctcaagc
+     1321 ccaggtctct ccctagtgac ccacccagca catttagcta gctgagcccc acagccagag
+     1381 gtcctcaggc cctgctttca gggcagttgc tctgaagtcg gcaaggggga gtgactgcct
+     1441 ggccactcca tgccctccaa gagctccttc tgcaggagcg tacagaaccc agggccctgg
+     1501 cacccgtgca gaccctggcc caccccacct gggcgctcag tgcccaagag atgtccacac
+     1561 ctaggatgtc ccgcggtggg tggggggccc gagagacggg caggccgggg gcaggcctgg
+     1621 ccatgcgggg ccgaaccggg cactgcccag cgtggggcgc gggggccacg gcgcgcgccc
+     1681 ccagcccccg ggcccagcac cccaaggcgg ccaacgccaa aactctccct cctcctcttc
+     1741 ctcaatctcg ctctcgctct tttttttttt cgcaaaagga ggggagaggg ggtaaaaaaa
+     1801 tgctgcactg tgcggcgaag ccggtgagtg agcggcgcgg ggccaatcag cgtgcgccgt
+     1861 tccgaaagtt gccttttatg gctcgagcgg ccgcggcggc gccctataaa acccagcggc
+     1921 gcgacgcgcc accaccgccg agaccgcgtc cgccccgcga gcacagagcc tcgcctttgc
+     1981 cgatccgccg cccgtccaca cccgccgcca ggtaagcccg gccagccgac cggggcaggc
+     2041 ggctcacggc ccggccgcag gcggccgcgg ccccttcgcc cgtgcagagc cgccgtctgg
+     2101 gccgcagcgg ggggcgcatg gggggggaac cggaccgccg tggggggcgc gggagaagcc
+     2161 cctgggcctc cggagatggg ggacacccca cgccagttcg gaggcgcgag gccgcgctcg
+     2221 ggaggcgcgc tccgggggtg ccgctctcgg ggcgggggca accggcgggg tctttgtctg
+     2281 agccgggctc ttgccaatgg ggatcgcagg gtgggcgcgg cggagccccc gccaggcccg
+     2341 gtgggggctg gggcgccatt gcgcgtgcgc gctggtcctt tgggcgctaa ctgcgtgcgc
+     2401 gctgggaatt ggcgctaatt gcgcgtgcgc gctgggactc aaggcgctaa ctgcgcgtgc
+     2461 gttctggggc ccggggtgcc gcggcctggg ctggggcgaa ggcgggctcg gccggaaggg
+     2521 gtggggtcgc cgcggctccc gggcgcttgc gcgcacttcc tgcccgagcc gctggccgcc
+     2581 cgagggtgtg gccgctgcgt gcgcgcgcgc cgacccggcg ctgtttgaac cgggcggagg
+     2641 cggggctggc gcccggttgg gagggggttg gggcctggct tcctgccgcg cgccgcgggg
+     2701 acgcctccga ccagtgtttg ccttttatgg taataacgcg gccggcccgg cttcctttgt
+     2761 ccccaatctg ggcgcgcgcc ggcgccccct ggcggcctaa ggactcggcg cgccggaagt
+     2821 ggccagggcg ggggcgacct cggctcacag cgcgcccggc tattctcgca gctcaccatg
+     2881 gatgatgata tcgccgcgct cgtcgtcgac aacggctccg gcatgtgcaa ggccggcttc
+     2941 gcgggcgacg atgccccccg ggccgtcttc ccctccatcg tggggcgccc caggcaccag
+     3001 gtaggggagc tggctgggtg gggcagcccc gggagcgggc gggaggcaag ggcgctttct
+     3061 ctgcacagga gcctcccggt ttccggggtg ggggctgcgc ccgtgctcag ggcttcttgt
+     3121 cctttccttc ccagggcgtg atggtgggca tgggtcagaa ggattcctat gtgggcgacg
+     3181 aggcccagag caagagaggc atcctcaccc tgaagtaccc catcgagcac ggcatcgtca
+     3241 ccaactggga cgacatggag aaaatctggc accacacctt ctacaatgag ctgcgtgtgg
+     3301 ctcccgagga gcaccccgtg ctgctgaccg aggcccccct gaaccccaag gccaaccgcg
+     3361 agaagatgac ccaggtgagt ggcccgctac ctcttctggt ggccgcctcc ctccttcctg
+     3421 gcctcccgga gctgcgccct ttctcactgg ttctctcttc tgccgttttc cgtaggactc
+     3481 tcttctctga cctgagtctc ctttggaact ctgcaggttc tatttgcttt ttcccagatg
+     3541 agctcttttt ctggtgtttg tctctctgac taggtgtcta agacagtgtt gtgggtgtag
+     3601 gtactaacac tggctcgtgt gacaaggcca tgaggctggt gtaaagcggc cttggagtgt
+     3661 gtattaagta ggcgcacagt aggtctgaac agactcccca tcccaagacc ccagcacact
+     3721 tagccgtgtt ctttgcactt tctgcatgtc ccccgtctgg cctggctgtc cccagtggct
+     3781 tccccagtgt gacatggtgt atctctgcct tacagatcat gtttgagacc ttcaacaccc
+     3841 cagccatgta cgttgctatc caggctgtgc tatccctgta cgcctctggc cgtaccactg
+     3901 gcatcgtgat ggactccggt gacggggtca cccacactgt gcccatctac gaggggtatg
+     3961 ccctccccca tgccatcctg cgtctggacc tggctggccg ggacctgact gactacctca
+     4021 tgaagatcct caccgagcgc ggctacagct tcaccaccac ggccgagcgg gaaatcgtgc
+     4081 gtgacattaa ggagaagctg tgctacgtcg ccctggactt cgagcaagag atggccacgg
+     4141 ctgcttccag ctcctccctg gagaagagct acgagctgcc tgacggccag gtcatcacca
+     4201 ttggcaatga gcggttccgc tgccctgagg cactcttcca gccttccttc ctgggtgagt
+     4261 ggagactgtc tcccggctct gcctgacatg agggttaccc ctcggggctg tgctgtggaa
+     4321 gctaagtcct gccctcattt ccctctcagg catggagtcc tgtggcatcc acgaaactac
+     4381 cttcaactcc atcatgaagt gtgacgtgga catccgcaaa gacctgtacg ccaacacagt
+     4441 gctgtctggc ggcaccacca tgtaccctgg cattgccgac aggatgcaga aggagatcac
+     4501 tgccctggca cccagcacaa tgaagatcaa ggtgggtgtc tttcctgcct gagctgacct
+     4561 gggcaggtcg gctgtggggt cctgtggtgt gtggggagct gtcacatcca gggtcctcac
+     4621 tgcctgtccc cttccctcct cagatcattg ctcctcctga gcgcaagtac tccgtgtgga
+     4681 tcggcggctc catcctggcc tcgctgtcca ccttccagca gatgtggatc agcaagcagg
+     4741 agtatgacga gtccggcccc tccatcgtcc accgcaaatg cttctaggcg gactatgact
+     4801 tagttgcgtt acaccctttc ttgacaaaac ctaacttgcg cagaaaacaa gatgagattg
+     4861 gcatggcttt atttgttttt tttgttttgt tttggttttt tttttttttt tggcttgact
+     4921 caggatttaa aaactggaac ggtgaaggtg acagcagtcg gttggagcga gcatccccca
+     4981 aagttcacaa tgtggccgag gactttgatt gcacattgtt gtttttttaa tagtcattcc
+     5041 aaatatgaga tgcgttgtta caggaagtcc cttgccatcc taaaagccac cccacttctc
+     5101 tctaaggaga atggcccagt cctctcccaa gtccacacag gggaggtgat agcattgctt
+     5161 tcgtgtaaat tatgtaatgc aaaatttttt taatcttcgc cttaatactt ttttattttg
+     5221 ttttattttg aatgatgagc cttcgtgccc ccccttcccc cttttttgtc ccccaacttg
+     5281 agatgtatga aggcttttgg tctccctggg agtgggtgga ggcagccagg gcttacctgt
+     5341 acactgactt gagaccagtt gaataaaagt gcacacctta aaaatgaggc caagtgtgac
+     5401 tttgtggtgt ggctgggttg ggggcagcag agggtgaacc ctgcaggagg gtgaaccctg
+     5461 caaaagggtg gggcagtggg ggccaacttg tccttaccca gagtgcaggt gtgtggagat
+     5521 ccctcctgcc ttgacattga gcagccttag agggtggggg aggctcaggg gtcaggtctc
+     5581 tgttcctgct tattggggag ttcctggcct ggcccttcta tgtctcccca ggtaccccag
+     5641 tttttctggg ttcacccaga gtgcagatgc ttgaggaggt gggaagggac tatttggggg
+     5701 tgtctggctc aggtgccatg cctcactggg gctggttggc acctgcattt cctgggagtg
+     5761 gggctgtctc agggtagctg ggcacggtgt tcccttgagt gggggtgtag tgggtgttcc
+     5821 tagctgccac gcctttgcct tcacctatgg gatcgtggct gtcagccttg agggtcagcc
+     5881 tggcccaggc tcccataggc ttaggagagg ccgcaattcc tacctgttca tccagacaga
+     5941 gggggacctg gaatcaaagt caagttgggg tagggggtcc atggggccat atctggcctg
+     6001 cagacagctc tggttagcta tgggctgagg tctggattct gccttgtgac tggagactgg
+     6061 gcgccatccc gtggcctctg agggcccagt ttgttcgtga cccatgctgc agagggagat
+     6121 acccaggctc ctggacctca gggcctgcct ggcactgcag gccaggttct ctttttattt
+     6181 ctgagacggg gtcttgtgtt gcccaggctg gagtgtaatg gcacaaccat ggctcactgc
+     6241 agcctcaact ttgggctcaa gcaattctcc tgcctcagcc tcccaagtag ctgaaactac
+     6301 acaggcatgc cccagcacgc ccagctagtt gcaggtcaga ttctcattgt tctacagggc
+     6361 cctgagttaa atactctcgc aagaagaaac caagcctggc ctgccttccc tctgctagaa
+     6421 gctgtgattg acaccagcag agaatgaagg aagaaaaggg ggtgaggatc ccttgcaggg
+     6481 atgccgttta ccccaaacac cacctggtgc atagcagttg ttctggaaat gatccggtcc
+     6541 ccccaggagg cctggactct caactgtgca cagtggccta ctggcagaga ggaaggtggt
+     6601 acccttcctc ctgtgttatc ttggaggtcc cctgaagggc tctctggggt ggttctagct
+     6661 cttttggtct gatttctgca gtggtgagcc ctgggccacc ttgggccact taatcattca
+     6721 acccccattc attgagtgac cactctacgg tgggggaggc tactgagatg acctggacaa
+     6781 ggaccctgcc ctggaggagc tgtcagtctg gaagtgagga tttaattcat ttgcccattc
+     6841 attcattcat tcattcattc attgaggact taattcattt gctcattcat tcattcattt
+     6901 gctcattcat ccattcattc actcattcat ccattcattc atccatccat ccatccatcc
+     6961 atccaatcac tatttgtgcc agatagtgcg ggtatagagg agaaccaacc agatgtgttc
+     7021 cgtgtcctca ccaggcaccc agtttaatgg ggaagacatc acaagcacga aggcaaacaa
+     7081 atgagtgtac agtgacatgc tgtgatcata ggaagagaga gcagagactt tgatgaacac
+     7141 gagcatcggg tgatgttcat tatgtcgatt gtggtggtgg tcttgcaggt gtagacatac
+     7201 ttcaaacctt atctaattgg gcctgctgtg gtgacgcatg cttgtaatcc cagcattttg
+     7261 ggaagctgag gtgggaggat cacttgagcc caggagctca aggctgcagt gagctatgat
+     7321 tgcaccactg cactccagcc tgggtgacag aacaagaacc tgactcttaa aaattaaaat
+     7381 aggccaggca ggcgtggtg
+//
+

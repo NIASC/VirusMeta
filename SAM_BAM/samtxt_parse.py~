@@ -1,0 +1,91 @@
+#!/usr/bin/env python
+import pysam
+import os
+import sys
+
+#http://picard.sourceforge.net/explain-flags.html
+
+with open(sys.argv[1],"r") as samtxt, open(sys.argv[2],"w") as self_txt_result, open(sys.argv[3],"w") as self_singletons:
+     for lines in samtxt:
+        QNAME = None
+        FLAG  = None 
+        RNAME = None 
+        MPOS  = None 
+        MAPQ  = None 
+        ISIZE = None 
+        #paired      = None
+        pair = None
+        is_mapped      = None
+        both_mapped    = None
+        mate_is_mapped = None
+        line = lines.strip().split()
+        QNAME = line[0]
+        FLAG  = int(line[1])
+        RNAME = line[2]
+        POS   = line[3]
+        MPOS  = line[4]
+        MAPQ  = line[5]
+        ISIZE = line[6]
+        #both unmapped
+        if FLAG == 44 or FLAG == 141 or FLAG == 77 or FLAG ==143: #
+           self_singletons.write("%s\n" % QNAME)
+        else:
+           #one of the mate is unmapped
+           if FLAG == 73 or FLAG == 89 or FLAG == 121 or FLAG == 75 or FLAG == 123:
+              both_mapped      = 0
+              mate_is_mapped   = 0
+              pair             = 1       
+              is_mapped        = 1
+           if FLAG == 101 or FLAG == 107 or FLAG == 69 or FLAG == 117 or FLAG == 71 or FLAG == 119:
+              both_mapped      = 0
+              mate_is_mapped   = 1
+              pair             = 1       
+              is_mapped        = 0
+           if FLAG == 133 or FLAG == 165 or FLAG == 181 or FLAG == 135 or FLAG == 183:
+              both_mapped      = 0
+              mate_is_mapped   = 1
+              pair             = 2       
+              is_mapped        = 0
+           if FLAG == 153 or FLAG == 185 or FLAG == 137 or FLAG == 139 or FLAG == 187:
+              both_mapped      = 0
+              mate_is_mapped   = 0
+              pair             = 2       
+              is_mapped        = 1
+           #mapped in correct orientation and within insersize
+           if FLAG == 99 or FLAG == 83: 
+              both_mapped      = 1
+              mate_is_mapped   = 1
+              pair             = 1       
+              is_mapped        = 1
+           if FLAG == 147 or FLAG == 163:       
+              both_mapped      = 1
+              mate_is_mapped   = 1
+              pair             = 2       
+              is_mapped        = 1
+           #mapped within the insersize but wrong orientation
+           if FLAG == 67  or FLAG == 115:       
+              both_mapped      = 1
+              mate_is_mapped   = 1
+              pair             = 1       
+              is_mapped        = 1
+           if FLAG == 131  or FLAG == 179:       
+              both_mapped      = 1
+              mate_is_mapped   = 1
+              pair             = 2       
+              is_mapped        = 1
+           #mapped wrong insersize and wrong orientation and could possibly reside in different contigs
+           if FLAG == 81  or FLAG == 97 or FLAG == 65 or FLAG == 113:       
+              both_mapped      = 1
+              mate_is_mapped   = 1
+              pair             = 1       
+              is_mapped        = 1
+           if FLAG == 161 or FLAG == 145 or FLAG == 129 or FLAG == 177:       
+              both_mapped      = 1
+              mate_is_mapped   = 1
+              pair             = 2       
+              is_mapped        = 1
+           ######################## 
+           out_line = None  
+           out_line = [QNAME,FLAG,RNAME,POS,MPOS,MAPQ,ISIZE,pair,is_mapped,both_mapped,mate_is_mapped]     
+           self_txt_result.write('%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n' % \
+           (out_line[0],out_line[1],out_line[2],out_line[3],out_line[4],out_line[5],out_line[6],out_line[7],out_line[8],out_line[9],out_line[10]))

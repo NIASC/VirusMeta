@@ -1,0 +1,75 @@
+###########################################################################
+#
+# Configuration file for VirusFinder
+#
+###########################################################################
+
+
+################################
+## Input NGS data can be either of the following two options:
+##  (a) an alignment file (in BAM format).
+##  (b) FASTQ file(s) (preferred). For single end data, user needs to specify the variable fastq1; 
+##      for paired-end data, user has to specify both fastq1 and fastq2. 
+################################
+
+#alignment_file = /scratch/kingw/VirusFinder/simulation/simulation.bam
+fastq1        = /media/StorageOne/HTS/Projects/2014_O-Q1_Larynx/VECTOR/indices_dir/S2.read1.fastq.gz
+fastq2        = /media/StorageOne/HTS/Projects/2014_O-Q1_Larynx/VECTOR/indices_dir/S2.read2.fastq.gz
+potenial_viral_db = /media/StorageOne/HTS/Projects/2014_O-Q1_Larynx/PB/viruses.fasta
+
+mailto         = davit.bzhalava@ki.se
+thread_no      = 8
+
+detect_virus       = no   # if no is provided, VirusFinder will not detect virus denovo, and potentialy viral sequences (potenial_viral_db)  must be provided
+detect_integration = yes   # if no is provided, VirusFinder will not detect virus integrations
+detect_mutation    = yes   # if no is provided, VirusFinder will not detect viral mutations
+
+
+################################
+## The full paths to the following third-party tools are required by VirusFinder:
+################################
+
+samtools_bin    = /media/StorageOne/HTS/viralmeta_bioifo/public_programs/samtools-0.1.19/samtools
+blastn_bin      = /usr/local/bin/blastn
+bowtie_bin      = /media/StorageOne/HTS/viralmeta_bioifo/public_programs/bowtie2-2.2.4/bowtie2
+bwa_bin         = /usr/local/bin/bwa
+trinity_script  = /media/StorageOne/HTS/viralmeta_bioifo/public_programs/VirusFinder_custom/trinityrnaseq/Trinity.pl
+SVDetect_dir    = /media/StorageOne/HTS/viralmeta_bioifo/public_programs/SVDetect_r0.8b
+blast_xml_parser_bin = /media/StorageOne/HTS/viralmeta_bioifo/blast_module/run_parallel_xml_parser.py
+wrapfasta_bin   = /media/StorageOne/HTS/viralmeta_bioifo/public_programs/VirusFinder_custom/wrapFasta.sh
+
+sort_top_virus_bin    = /media/StorageOne/HTS/viralmeta_bioifo/public_programs/VirusFinder_custom/select_top_virus.R
+select_top_virus_bin  = /media/StorageOne/HTS/viralmeta_bioifo/public_programs/VirusFinder_custom/select_top_virus.sh
+
+index_name            = X2344_S2
+virus_index_file      = /media/StorageOne/HTS/Projects/2014_O-Q1_Larynx/PB/virus_final_index.csv
+
+################################
+## Reference files indexed for Bowtie2 and BLAST
+################################
+
+virus_database     = /media/StorageOne/HTS/PublicData/viruses/VIRUS_ref.fasta
+bowtie_index_human = /media/StorageOne/HTS/PublicData/hg19/bowtie/hg19
+blastn_index_human = /media/StorageOne/HTS/PublicData/hg19/blast/hg19
+blastn_index_virus = /media/StorageOne/HTS/PublicData/viruses/VIRUS_ref.fasta
+
+
+##########################################
+## Parameters of virus integration detection. They are ignored for single-end data
+##########################################
+
+detection_mode     = sensitive
+flank_region_size  = 4000
+sensitivity_level  = 1
+
+##########################################
+## Parameters of virus detection. Smaller “min_contig_length”, higher sensitivity
+##########################################
+
+min_contig_length  = 200
+blastn_evalue_thrd = 0.05
+similarity_thrd    = 0.8 
+chop_read_length   = 25
+minIdentity        = 80
+ 
+

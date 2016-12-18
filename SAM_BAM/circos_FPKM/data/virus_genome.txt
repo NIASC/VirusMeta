@@ -1,0 +1,7 @@
+chr - ACTB ACTB 0 3454 chr1
+chr - TP73 TP73 0 83637 chr2
+chr - PUM1 PUM1 0 134219 chr3
+chr - GAPDH GAPDH 0 3971 chr4
+chr - DLX5 DLX5 0 4442 chr5
+chr - KRT2 KRT2 0 7618 chr6
+chr - TP63 TP63 0 300165 chr7
