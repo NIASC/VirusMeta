@@ -7,7 +7,7 @@
 #cwd=$(pwd)   #get current home directory 
 
 export path_htsa_dir=/media/StorageOne/HTS #path to HTSA analysis dir
-export path_pipeline=viralmeta_bioifo
+export path_pipeline=VirusSlayer
 export Project_name=$1
 export platform=$2
 export sequencing_type=$3 #unbiased or PCR

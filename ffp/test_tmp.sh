@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# /media/StorageOne/HTS/viralmeta_bioifo/ffp/ffp_block_step1.sh /media/StorageOne/HTS/PublicData/nt_pb/family /media/StorageOne/HTS/PublicData/nt_pb/virus_block_ffp_7 /media/StorageOne/HTS/PublicData/nt_pb/virus_genomes_ffp_7 7  /media/StorageOne/HTS/PublicData/nt_pb/ffp_7_final /media/StorageOne/HTS/PublicData/nt_pb/VIR_unique_taxa_1000.txt /media/StorageOne/HTS/PublicData/nt_pb/ssDNA_clean_list.txt genomes /media/StorageOne/HTS/PublicData/nt_pb/ssDNA_viruses_clean.gi
+# /media/StorageOne/HTS/VirusSlayer/ffp/ffp_block_step1.sh /media/StorageOne/HTS/PublicData/nt_pb/family /media/StorageOne/HTS/PublicData/nt_pb/virus_block_ffp_7 /media/StorageOne/HTS/PublicData/nt_pb/virus_genomes_ffp_7 7  /media/StorageOne/HTS/PublicData/nt_pb/ffp_7_final /media/StorageOne/HTS/PublicData/nt_pb/VIR_unique_taxa_1000.txt /media/StorageOne/HTS/PublicData/nt_pb/ssDNA_clean_list.txt genomes /media/StorageOne/HTS/PublicData/nt_pb/ssDNA_viruses_clean.gi
 
 export path_htsa_dir=/media/StorageOne/HTS #path to HTSA analysis dir
-export path_pipeline=viralmeta_bioifo
+export path_pipeline=VirusSlayer
 export family_dir=$1
 export block_dir=$2
 export virus_genomes_ffp=$3

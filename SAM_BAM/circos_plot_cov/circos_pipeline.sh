@@ -1,11 +1,11 @@
 #!/bin/bash
-#/media/StorageOne/HTS/viralmeta_bioifo/SAM_BAM/circos_plot_cov/circos_pipeline.sh /media/StorageOne/HTS/Projects/2011_N17_Viraskin2-HiSeq /media/StorageOne/HTS/Projects/2011_N17_Viraskin2-HiSeq/anecto_virus.fasta /media/StorageOne/HTS/Projects/2011_N17_Viraskin2-HiSeq/Data/Intensities/BaseCalls/forward.fastq /media/StorageOne/HTS/Projects/2011_N17_Viraskin2-HiSeq/Data/Intensities/BaseCalls/reverse.fastq
+#/media/StorageOne/HTS/VirusSlayer/SAM_BAM/circos_plot_cov/circos_pipeline.sh /media/StorageOne/HTS/Projects/2011_N17_Viraskin2-HiSeq /media/StorageOne/HTS/Projects/2011_N17_Viraskin2-HiSeq/anecto_virus.fasta /media/StorageOne/HTS/Projects/2011_N17_Viraskin2-HiSeq/Data/Intensities/BaseCalls/forward.fastq /media/StorageOne/HTS/Projects/2011_N17_Viraskin2-HiSeq/Data/Intensities/BaseCalls/reverse.fastq
 
 ##########################
 export project_work_dir=$1
 export path_htsa_dir=/media/StorageOne/HTS
 ##########################
-cp -r $path_htsa_dir/viralmeta_bioifo/SAM_BAM/circos_plot_cov  $1/circos_plot_cov
+cp -r $path_htsa_dir/VirusSlayer/SAM_BAM/circos_plot_cov  $1/circos_plot_cov
 ##
 if [ -f $1/circos_plot_cov/data/histogram.txt ];
 then
@@ -30,7 +30,7 @@ fi
 ###
 cd $project_work_dir/circos_plot_cov
 
-#$path_htsa_dir/viralmeta_bioifo/SAM_BAM/BWA_NR.sh $1/b_actine_map $1/circos_plot_cov/b_actine.fasta $2 $3
+#$path_htsa_dir/VirusSlayer/SAM_BAM/BWA_NR.sh $1/b_actine_map $1/circos_plot_cov/b_actine.fasta $2 $3
 
 ##########################################################################################
 #   prepare files
@@ -69,7 +69,7 @@ cd $1/$work_fasta_map
 
 
 
-python $path_htsa_dir/viralmeta_bioifo/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
+python $path_htsa_dir/VirusSlayer/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
 
 
 cat sam_final_$work_fasta.txt | awk -F"\t" '{if($12 == 0 && $13>=90 && $14>=75) {print $1}}' | sort -k1,1 -T $1 | awk '!x[$1]++' > $work_fasta.ID
@@ -118,4 +118,4 @@ write.table(position_coverage,"data/histogram.txt", row.names=F, col.names=F, qu
 
 R CMD BATCH --no-save histogram_format.R
 
-perl $path_htsa_dir/viralmeta_bioifo/public_programs/circos-0.64/bin/circos  -conf etc/circos.conf
+perl $path_htsa_dir/VirusSlayer/public_programs/circos-0.64/bin/circos  -conf etc/circos.conf

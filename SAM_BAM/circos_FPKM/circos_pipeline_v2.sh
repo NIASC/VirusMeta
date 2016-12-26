@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# /media/StorageOne/HTS/viralmeta_bioifo/SAM_BAM/circos_FPKM/circos_pipeline_v2.sh /media/StorageOne/HTS/Projects/2013_H7_RNA-2libr /media/StorageOne/HTS/Projects/2013_H7_RNA-2libr/Data/Intensities/BaseCalls/forward.fastq.gz /media/StorageOne/HTS/Projects/2013_H7_RNA-2libr/Data/Intensities/BaseCalls/reverse.fastq.gz
+# /media/StorageOne/HTS/VirusSlayer/SAM_BAM/circos_FPKM/circos_pipeline_v2.sh /media/StorageOne/HTS/Projects/2013_H7_RNA-2libr /media/StorageOne/HTS/Projects/2013_H7_RNA-2libr/Data/Intensities/BaseCalls/forward.fastq.gz /media/StorageOne/HTS/Projects/2013_H7_RNA-2libr/Data/Intensities/BaseCalls/reverse.fastq.gz
 
 ##########################
 export project_work_dir=$1
@@ -10,7 +10,7 @@ export PAIR2=$3
 ##########################
 mkdir $project_work_dir
 
-cp -r $path_htsa_dir/viralmeta_bioifo/SAM_BAM/circos_FPKM  $project_work_dir/circos_FPKM
+cp -r $path_htsa_dir/VirusSlayer/SAM_BAM/circos_FPKM  $project_work_dir/circos_FPKM
 ##
 if [ -f $project_work_dir/circos_FPKM/data/histogram.txt ];
 then
@@ -34,7 +34,7 @@ then
 fi
 ###
 cd $project_work_dir/circos_FPKM
-#$path_htsa_dir/viralmeta_bioifo/SAM_BAM/BWA_NR.sh $project_work_dir/FPKM_map $project_work_dir/circos_FPKM/beta_actine.fasta $2 $3
+#$path_htsa_dir/VirusSlayer/SAM_BAM/BWA_NR.sh $project_work_dir/FPKM_map $project_work_dir/circos_FPKM/beta_actine.fasta $2 $3
 
 ##########################################################################################
 #   prepare files
@@ -63,7 +63,7 @@ cd $project_work_dir/FPKM_map
 samtools index aln-pe.sorted.bam
 
 #scl enable python27 - << \EOF
-#python $path_htsa_dir/viralmeta_bioifo/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
+#python $path_htsa_dir/VirusSlayer/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
 #EOF
 echo 'Estimate depth'
 cd $project_work_dir/circos_FPKM
@@ -231,7 +231,7 @@ write.table(position_coverage,"data/histogram.txt", row.names=F, col.names=F, qu
 
 R CMD BATCH --no-save histogram_format.R
 
-perl $path_htsa_dir/viralmeta_bioifo/public_programs/circos-0.64/bin/circos  -conf etc/circos.conf
+perl $path_htsa_dir/VirusSlayer/public_programs/circos-0.64/bin/circos  -conf etc/circos.conf
 
 ###########
 #  FPKM   #
@@ -259,6 +259,6 @@ for gene in 'ACTB' 'CAPDH'  'DLX5'  'HBB' 'HPV16'  'KRT2'  'PUM1'  'TP63'  'TP73
     with(countDf, all.equal(tpm, fpkmToTpm(fpkm)))
     countDf$effCounts <- with(countDf, countToEffCounts(count, length, effLength))
     write.table(countDf,"%s.fpkm.csv",sep=";",row.names=F)
-    ' $path_htsa_dir/viralmeta_bioifo $gene $gene $gene $gene > $gene.FPKM.R
+    ' $path_htsa_dir/VirusSlayer $gene $gene $gene $gene > $gene.FPKM.R
     R CMD BATCH --no-save $gene.FPKM.R
 done

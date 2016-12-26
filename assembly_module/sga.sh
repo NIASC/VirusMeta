@@ -1,6 +1,6 @@
 #! /bin/bash -x
 
-#/media/StorageOne/HTS/viralmeta_bioifo/assembly_module/sga.sh /media/StorageOne/HTS viralmeta_bioifo $project_work_dir/sga $project_work_dir/Data/Intensities/BaseCalls/forward.fastq $project_work_dir/Data/Intensities/BaseCalls/reverse.fastq
+#/media/StorageOne/HTS/VirusSlayer/assembly_module/sga.sh /media/StorageOne/HTS VirusSlayer $project_work_dir/sga $project_work_dir/Data/Intensities/BaseCalls/forward.fastq $project_work_dir/Data/Intensities/BaseCalls/reverse.fastq
 
 export path_htsa_dir=$1
 export path_pipeline=$2

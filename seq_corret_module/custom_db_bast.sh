@@ -5,7 +5,7 @@
 ###################################################################
 
 
-#sudo /media/storage/HTS/viralmeta_bioifo/seq_corret_module/custom_db_bast.sh query_fasta check_fasta_dir custom_check_working_dir
+#sudo /media/storage/HTS/VirusSlayer/seq_corret_module/custom_db_bast.sh query_fasta check_fasta_dir custom_check_working_dir
 
 export path_htsa_dir=/media/StorageOne/HTS #path to HTSA analysis dir
 
@@ -49,7 +49,7 @@ blastn -db custom.fasta -query $work_fasta -word_size 11 -gapopen 0 -gapextend 2
 
 echo "parsing blast output..."
 
-python $path_htsa_dir/viralmeta_bioifo/blast_module/run_parallel_xml_parser.py --input_file=custom.xml --result_file=custom_final.blast_results --out_gi=custom_gi.blast_results  --temp_directory=custom_tmp --jobs=70
+python $path_htsa_dir/VirusSlayer/blast_module/run_parallel_xml_parser.py --input_file=custom.xml --result_file=custom_final.blast_results --out_gi=custom_gi.blast_results  --temp_directory=custom_tmp --jobs=70
 
 
 echo "done"

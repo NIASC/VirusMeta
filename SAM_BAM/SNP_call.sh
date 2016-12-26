@@ -7,10 +7,10 @@
 #
 #    It is variant caller, SNP caller, plotter 
 #
-#    /media/StorageOne/HTS/viralmeta_bioifo/SAM_BAM/SNP_call.sh /media/StorageOne/HTS/Projects/next_seq_condiloma/newSE/SNP /media/StorageOne/HTS/Projects/next_seq_condiloma/newSE/SE379.fasta /media/StorageOne/HTS/Projects/next_seq_condiloma/Data/Intensities/BaseCalls/forward.fastq /media/StorageOne/HTS/Projects/next_seq_condiloma/Data/Intensities/BaseCalls/reverse.fastq viral-mutation.vcf perform_allignment_no circos_plot_no
+#    /media/StorageOne/HTS/VirusSlayer/SAM_BAM/SNP_call.sh /media/StorageOne/HTS/Projects/next_seq_condiloma/newSE/SNP /media/StorageOne/HTS/Projects/next_seq_condiloma/newSE/SE379.fasta /media/StorageOne/HTS/Projects/next_seq_condiloma/Data/Intensities/BaseCalls/forward.fastq /media/StorageOne/HTS/Projects/next_seq_condiloma/Data/Intensities/BaseCalls/reverse.fastq viral-mutation.vcf perform_allignment_no circos_plot_no
 ############################################################################################
 export path_htsa_dir=/media/StorageOne/HTS
-export path_pipeline=viralmeta_bioifo
+export path_pipeline=VirusSlayer
 export work_dir=$1
 export query_fasta=$2
 export PAIR1=$3
@@ -268,7 +268,7 @@ then
     ' > fastacsv.R
 
     R CMD BATCH --no-save fastacsv.R
-    #java -cp /media/StorageOne/HTS/viralmeta_bioifo/SAM_BAM/ScalaVirusSlayer.jar virusslayer.fastacsv HPV16_test.fasta snp_tab.csv snp.HPV16_test.fasta
+    #java -cp /media/StorageOne/HTS/VirusSlayer/SAM_BAM/ScalaVirusSlayer.jar virusslayer.fastacsv HPV16_test.fasta snp_tab.csv snp.HPV16_test.fasta
     java -cp $path_htsa_dir/$path_pipeline/SAM_BAM/ScalaVirusSlayer.jar virusslayer.fastacsv  $work_fasta snp_tab.csv snp.$work_fasta
 
     ###################

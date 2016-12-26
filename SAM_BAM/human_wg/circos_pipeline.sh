@@ -17,9 +17,9 @@ then
 fi
 
 cd $project_work_dir/Pre_Assembly
-#/media/storage/HTS/viralmeta_bioifo/SAM_BAM/hg19_BWA_NR.sh $project_work_dir/hg19 $project_work_dir/Data/Intensities/BaseCalls/forward.fastq $project_work_dir/Data/Intensities/BaseCalls/reverse.fastq
+#/media/storage/HTS/VirusSlayer/SAM_BAM/hg19_BWA_NR.sh $project_work_dir/hg19 $project_work_dir/Data/Intensities/BaseCalls/forward.fastq $project_work_dir/Data/Intensities/BaseCalls/reverse.fastq
 
-/media/storage/HTS/viralmeta_bioifo/SAM_BAM/hg19_BWA_NR.sh $project_work_dir/Pre_Assembly/hg19 $project_work_dir/diginorm/read_1.fastq $project_work_dir/diginorm/read_2.fastq $project_work_dir/diginorm/normalised_ID.txt
+/media/storage/HTS/VirusSlayer/SAM_BAM/hg19_BWA_NR.sh $project_work_dir/Pre_Assembly/hg19 $project_work_dir/diginorm/read_1.fastq $project_work_dir/diginorm/read_2.fastq $project_work_dir/diginorm/normalised_ID.txt
 
 #awk '{print $3"\t"$6}' human_wg/data/karyotype.txt > human_wg/hg19_genome
 #bedtools makewindows -g human_wg/hg19_genome -w 100000 > human_wg/hg19_100k.bed
@@ -82,7 +82,7 @@ write.table(mirnas,"human_wg/data/mirnas.txt", row.names=F, col.names=F, quote=F
 R CMD BATCH --no-save miRNA.R
 
 
-perl /media/storage/HTS/viralmeta_bioifo/public_programs/circos-0.64/bin/circos  -conf  human_wg/etc/circos.conf
+perl /media/storage/HTS/VirusSlayer/public_programs/circos-0.64/bin/circos  -conf  human_wg/etc/circos.conf
 
 
 #rm hg19/*.sam

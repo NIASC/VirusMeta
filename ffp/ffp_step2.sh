@@ -1,11 +1,11 @@
 #!/bin/sh
 
-#/media/StorageOne/HTS/viralmeta_bioifo/ffp/ffp_step2.sh /media/StorageOne/HTS/PublicData/nt_pb/virus_species_ffp_7 /media/StorageOne/HTS/PublicData/nt_pb/virus_block_ffp_7 species
+#/media/StorageOne/HTS/VirusSlayer/ffp/ffp_step2.sh /media/StorageOne/HTS/PublicData/nt_pb/virus_species_ffp_7 /media/StorageOne/HTS/PublicData/nt_pb/virus_block_ffp_7 species
 
-#/media/StorageOne/HTS/viralmeta_bioifo/ffp/ffp_step3.sh /media/StorageOne/HTS/PublicData/nt_pb/virus_genomes_ffp_7 /media/StorageOne/HTS/PublicData/nt_pb/virus_block_ffp_7 genomes /media/StorageOne/HTS/PublicData/nt_pb/ssDNA_viruses_clean.gi
+#/media/StorageOne/HTS/VirusSlayer/ffp/ffp_step3.sh /media/StorageOne/HTS/PublicData/nt_pb/virus_genomes_ffp_7 /media/StorageOne/HTS/PublicData/nt_pb/virus_block_ffp_7 genomes /media/StorageOne/HTS/PublicData/nt_pb/ssDNA_viruses_clean.gi
 
 export path_htsa_dir=/media/StorageOne/HTS #path to HTSA analysis dir
-export path_pipeline=viralmeta_bioifo
+export path_pipeline=VirusSlayer
 export working_dir=$1
 export step1_dir=$2
 export list_type=$3 

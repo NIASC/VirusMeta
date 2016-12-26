@@ -2,7 +2,7 @@
 
 
 export path_htsa_dir=/media/StorageOne/HTS #path to HTSA analysis dir
-export path_pipeline=viralmeta_bioifo
+export path_pipeline=VirusSlayer
 export gi_list=$1 #gi_list (HPV_TTV.txt)
 export taxonomic_order=$2 #family
 export taxonomic_directory=$3 #/media/StorageOne/HTS/PublicData/nt_pb/family/

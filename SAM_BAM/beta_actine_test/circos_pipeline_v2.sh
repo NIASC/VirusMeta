@@ -1,5 +1,5 @@
 #!/bin/sh
-# /media/StorageOne/HTS/viralmeta_bioifo/SAM_BAM/beta_actine_test/circos_pipeline_v2.sh /media/StorageOne/HTS/Projects/2013_H5_RNA-NMSC_v3 /media/StorageOne/HTS/Projects/2013_H5_RNA-NMSC_v3/CaskiRNA.read1.fastq.gz /media/StorageOne/HTS/Projects/2013_H5_RNA-NMSC_v3/CaskiRNA.read2.fastq.gz
+# /media/StorageOne/HTS/VirusSlayer/SAM_BAM/beta_actine_test/circos_pipeline_v2.sh /media/StorageOne/HTS/Projects/2013_H5_RNA-NMSC_v3 /media/StorageOne/HTS/Projects/2013_H5_RNA-NMSC_v3/CaskiRNA.read1.fastq.gz /media/StorageOne/HTS/Projects/2013_H5_RNA-NMSC_v3/CaskiRNA.read2.fastq.gz
 ##########################
 export project_work_dir=$1
 export path_htsa_dir=/media/StorageOne/HTS
@@ -8,7 +8,7 @@ export PAIR2=$3
 ##########################
 mkdir $project_work_dir
 
-cp -r $path_htsa_dir/viralmeta_bioifo/SAM_BAM/beta_actine_test  $project_work_dir/beta_actine_test
+cp -r $path_htsa_dir/VirusSlayer/SAM_BAM/beta_actine_test  $project_work_dir/beta_actine_test
 ##
 if [ -f $project_work_dir/beta_actine_test/data/histogram.txt ];
 then
@@ -32,7 +32,7 @@ then
 fi
 ###
 cd $project_work_dir/beta_actine_test
-#$path_htsa_dir/viralmeta_bioifo/SAM_BAM/BWA_NR.sh $project_work_dir/beta_actine_map $project_work_dir/beta_actine_test/beta_actine.fasta $2 $3
+#$path_htsa_dir/VirusSlayer/SAM_BAM/BWA_NR.sh $project_work_dir/beta_actine_map $project_work_dir/beta_actine_test/beta_actine.fasta $2 $3
 
 ##########################################################################################
 #   prepare files
@@ -61,7 +61,7 @@ cd $project_work_dir/beta_actine_map
 samtools index aln-pe.sorted.bam
 
 #scl enable python27 - << \EOF
-#python $path_htsa_dir/viralmeta_bioifo/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
+#python $path_htsa_dir/VirusSlayer/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
 #EOF
 echo 'Estimate depth'
 cd $project_work_dir/beta_actine_test
@@ -104,7 +104,7 @@ write.table(position_coverage,"data/histogram.txt", row.names=F, col.names=F, qu
 
 R CMD BATCH --no-save histogram_format.R
 
-perl $path_htsa_dir/viralmeta_bioifo/public_programs/circos-0.64/bin/circos  -conf etc/circos.conf
+perl $path_htsa_dir/VirusSlayer/public_programs/circos-0.64/bin/circos  -conf etc/circos.conf
 
 ###########
 #  FPKM   #
@@ -128,6 +128,6 @@ countDf$fpkm <- with(countDf, countToFpkm(count, effLength))
 with(countDf, all.equal(tpm, fpkmToTpm(fpkm)))
 countDf$effCounts <- with(countDf, countToEffCounts(count, length, effLength))
 write.table(countDf,"fpkm.csv",sep=";",row.names=F)
-' $path_htsa_dir/viralmeta_bioifo > FPKM.R
+' $path_htsa_dir/VirusSlayer > FPKM.R
 R CMD BATCH --no-save FPKM.R
 

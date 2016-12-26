@@ -15,7 +15,7 @@
 #   prepare files
 ##########################################################################################
 export path_htsa_dir=/media/StorageOne/HTS
-export path_pipeline=viralmeta_bioifo
+export path_pipeline=VirusSlayer
 export NR_dir=$1
 export path_to_work_fasta=$2
 export PAIR1=$3

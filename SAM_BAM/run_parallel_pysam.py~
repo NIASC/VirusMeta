@@ -199,8 +199,8 @@ def splitBAM(IN_BAM, segments):
 def runBAM(IN_BAM,  output_files):
        txtResultFile, flag_file = output_files
        self_txt_result = open(txtResultFile,"w")
-       #run_cmd("/home/gsflx/viralmeta_bioifo/SAM_BAM/pysam_parse.py %s %s" % (IN_BAM, txtResultFile))
-       #ls *.bam | parallel -j23 -k /home/gsflx/viralmeta_bioifo/SAM_BAM/pysam_parse.py 
+       #run_cmd("/home/gsflx/VirusSlayer/SAM_BAM/pysam_parse.py %s %s" % (IN_BAM, txtResultFile))
+       #ls *.bam | parallel -j23 -k /home/gsflx/VirusSlayer/SAM_BAM/pysam_parse.py 
        run_cmd("samtools view %s | cut -f1,2,3,4,8,5,9 > %s" % (IN_BAM, txtResultFile))
        open(flag_file, "w")            
 

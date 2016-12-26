@@ -1,9 +1,9 @@
 #!/bin/sh
 
-#/media/StorageOne/HTS/viralmeta_bioifo/ffp/ffp_block_step1.sh /media/StorageOne/HTS/PublicData/nt_pb/virus_block_ffp_7 /media/StorageOne/HTS/PublicData/nt_pb/family 7
+#/media/StorageOne/HTS/VirusSlayer/ffp/ffp_block_step1.sh /media/StorageOne/HTS/PublicData/nt_pb/virus_block_ffp_7 /media/StorageOne/HTS/PublicData/nt_pb/family 7
 
 export path_htsa_dir=/media/StorageOne/HTS #path to HTSA analysis dir
-export path_pipeline=viralmeta_bioifo
+export path_pipeline=VirusSlayer
 export working_dir=$1
 export family_dir=$2
 # export kmer_length=$3

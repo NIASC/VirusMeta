@@ -1,4 +1,4 @@
-#Rscript /media/StorageOne/HTS/viralmeta_bioifo/SAM_BAM/ttv_positivity_OR.R '/media/StorageOne/HTS/viralmeta_bioifo' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/NR/nr_by_index.csv' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/aggregated_dir/self_blast_tmp/80.CLUSTER_BLAST.txt' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/case_control_id.txt' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/PB/nt_final.csv' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/PB/Family_OR.csv' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/PB/nt_OR.csv' 47 47 'Family' 5
+#Rscript /media/StorageOne/HTS/VirusSlayer/SAM_BAM/ttv_positivity_OR.R '/media/StorageOne/HTS/VirusSlayer' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/NR/nr_by_index.csv' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/aggregated_dir/self_blast_tmp/80.CLUSTER_BLAST.txt' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/case_control_id.txt' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/PB/nt_final.csv' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/PB/Family_OR.csv' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/PB/nt_OR.csv' 47 47 'Family' 5
 
 args<-commandArgs(TRUE)
 path_pipeline = sprintf("%s", args[1])
@@ -15,7 +15,7 @@ clustering_factor  = sprintf("%s", args[11])
 positivity_cuttoff  = as.numeric(sprintf("%s", args[12]))
 number_of_blank     = as.numeric(sprintf("%s", args[13]))
 #-----------------------------------------------------
-#path_pipeline='/media/StorageOne/HTS/viralmeta_bioifo'
+#path_pipeline='/media/StorageOne/HTS/VirusSlayer'
 #path_to_project = '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq'
 #nr_by_index_file <- '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/NR/nr_by_index.csv'
 #CLUSTER_BLAST_file<- '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/aggregated_dir/self_blast_tmp/80.CLUSTER_BLAST.txt'

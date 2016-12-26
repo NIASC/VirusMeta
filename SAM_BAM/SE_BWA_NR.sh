@@ -40,8 +40,8 @@ samtools index aln-pe.sorted.bam
 
 
 scl enable python27 - << \EOF
-python /media/storage/HTS/viralmeta_bioifo/SAM_BAM/run_parallel_pysam.py --input_file=aln-pe.bam --query_fasta=$work_fasta.txt  --result_file=$work_fasta.txt --jobs 70 --temp_directory=tmp
-python /media/storage/HTS/viralmeta_bioifo/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
+python /media/storage/HTS/VirusSlayer/SAM_BAM/run_parallel_pysam.py --input_file=aln-pe.bam --query_fasta=$work_fasta.txt  --result_file=$work_fasta.txt --jobs 70 --temp_directory=tmp
+python /media/storage/HTS/VirusSlayer/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
 EOF
 
 #remove temporary directory

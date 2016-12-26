@@ -7,7 +7,7 @@
 #   
 ##########################################################################################
 """
-    /media/StorageOne/HTS/viralmeta_bioifo/SAM_BAM/run_parallel_pysam.py --input_file aln-pe.bam --query_fasta $db --result_file  sam_final_$work_fasta.txt --jobs 80
+    /media/StorageOne/HTS/VirusSlayer/SAM_BAM/run_parallel_pysam.py --input_file aln-pe.bam --query_fasta $db --result_file  sam_final_$work_fasta.txt --jobs 80
     rm -rf tmp 
     
 """
@@ -42,7 +42,7 @@ parser.add_option("--path_htsa_dir", dest="path_htsa_dir",
 parser.add_option("--path_pipeline", dest="path_pipeline",
                   metavar="DIRECTRORY",
                   type="string",
-                  default="viralmeta_bioifo",
+                  default="VirusSlayer",
                   help="Name and path of pipeline  directory. ")
 
 parser.add_option("-i", "--input_file", dest="input_file",
@@ -212,7 +212,7 @@ def runBAM(IN_BAM,  output_files):
        self_txt_result = open(txtResultFile,"w")
        #run_cmd("/usr/local/bin/samtools index %s" % IN_BAM)
        run_cmd("python %s/%s/SAM_BAM/translate_pysam.py %s %s" % (path_htsa_dir,path_pipeline,IN_BAM, txtResultFile))
-       #ls *.bam | parallel -j23 -k /home/gsflx/viralmeta_bioifo/SAM_BAM/pysam_parse.py 
+       #ls *.bam | parallel -j23 -k /home/gsflx/VirusSlayer/SAM_BAM/pysam_parse.py 
        #run_cmd("/usr/local/bin/samtools view %s | cut -f1,2,3,4,8,5,9 > %s" % (IN_BAM, txtResultFile))
        open(flag_file, "w")            
 

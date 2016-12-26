@@ -63,7 +63,7 @@ run_cmd("/usr/local/bin/samtools view -b -S aln-pe.sam > aln-pe.bam")
 #os.system("samtools sort aln-pe.bam aln-pe.sorted")
 #os.system("samtools index aln-pe.sorted.bam") 
 #os.system("samtools mpileup -f %s aln-pe.sorted.bam > aln-pe.pileup" % work_fasta) 
-run_cmd("python ../../../viralmeta_bioifo/SAM_BAM/run_parallel_pysam.py --input_file=aln-pe.bam --query_fasta=%s  --result_file=%s.txt --jobs 70 --temp_directory=tmp" % (query_fasta,work_fasta)) 
+run_cmd("python ../../../VirusSlayer/SAM_BAM/run_parallel_pysam.py --input_file=aln-pe.bam --query_fasta=%s  --result_file=%s.txt --jobs 70 --temp_directory=tmp" % (query_fasta,work_fasta)) 
 shutil.rmtree("tmp")  #remove temporary directory
 samtxt_parse("%s.txt" % work_fasta, "sam_final_%s.txt" % work_fasta, " unmapped_%s.txt" % work_fasta)
 os.remove("%s.txt" % work_fasta)
