@@ -32,8 +32,8 @@ export vcf2fasta=$path_htsa_dir/$path_pipeline/public_programs/vcflib/bin/vcf2fa
 export fastq2fasta=$path_htsa_dir/$path_pipeline/SAM_BAM/fastq2fasta.py
 export disambiguate=$path_htsa_dir/$path_pipeline/some_scripts/disambiguate.py
 export CIRCOS_ORF=$path_htsa_dir/$path_pipeline/circos_plot_ORFs/circos_pipeline.sh
-export GATK_bin=$path_htsa_dir/$path_pipeline/VirusFinder_custom/bin/GenomeAnalysisTK.jar
-export picard_bin=$path_htsa_dir/$path_pipeline/VirusFinder_custom/bin/CreateSequenceDictionary.jar
+export GATK_bin=$path_htsa_dir/$path_pipeline/SAM_BAM/bin/GenomeAnalysisTK.jar
+export picard_bin=$path_htsa_dir/$path_pipeline/SAM_BAM/bin/CreateSequenceDictionary.jar
 ##########################################################################################
 #   tunable options
 ##########################################################################################
@@ -102,7 +102,7 @@ then
     rm test_mutations_vcf
     ##########################
     #separate snps from indels
-    awk -f $path_htsa_dir/$path_pipeline/public_programs/VirusFinder_custom/snp_indel.awk $mutations_vcf
+    awk -f $path_htsa_dir/$path_pipeline/SAM_BAM/snp_indel.awk $mutations_vcf
     #rm *bam
    # $samtools mpileup -u -f $work_fasta aln-pe.sorted.bam > aln-pe.pileup.bcf
    # $bcftools filter -i'%QUAL>20' aln-pe.pileup.bcf | $bcftools stats | grep TSTV > TSTV.txt
@@ -144,7 +144,7 @@ then
     rm test_mutations_vcf
     ##########################
     #separate snps from indels
-    awk -f $path_htsa_dir/$path_pipeline/public_programs/VirusFinder_custom/snp_indel.awk $mutations_vcf
+    awk -f $path_htsa_dir/$path_pipeline/SAM_BAM/snp_indel.awk $mutations_vcf
 fi
 
 if [ "$circos_plot" = "circos_plot_yes" ];
