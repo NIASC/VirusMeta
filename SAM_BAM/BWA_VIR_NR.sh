@@ -43,8 +43,8 @@ cd $1
 
 
 scl enable python27 - << \EOF
-#python /media/storage/HTS/VirusSlayer/SAM_BAM/run_parallel_pysam.py --input_file=aln-pe.bam --query_fasta=$work_fasta  --result_file=$work_fasta.txt --jobs 70 --temp_directory=tmp
-python /media/storage/HTS/VirusSlayer/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
+#python /media/storage/HTS/VirusMeta/SAM_BAM/run_parallel_pysam.py --input_file=aln-pe.bam --query_fasta=$work_fasta  --result_file=$work_fasta.txt --jobs 70 --temp_directory=tmp
+python /media/storage/HTS/VirusMeta/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
 EOF
 
 /usr/local/bin/samtools depth  aln-pe.sorted.bam > position_coverage.txt

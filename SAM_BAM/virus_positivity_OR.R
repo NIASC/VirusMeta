@@ -1,4 +1,4 @@
-#Rscript /media/StorageOne/HTS/VirusSlayer/SAM_BAM/virus_positivity_OR.R '/media/StorageOne/HTS/VirusSlayer' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/PB/virus_final_index.csv' 'Family' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/PB/virus_taxa_OR.csv' 5 47 47 0 '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/case_control_id.txt'
+#Rscript /media/StorageOne/HTS/VirusMeta/SAM_BAM/virus_positivity_OR.R '/media/StorageOne/HTS/VirusMeta' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/PB/virus_final_index.csv' 'Family' '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/PB/virus_taxa_OR.csv' 5 47 47 0 '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/case_control_id.txt'
 
 args<-commandArgs(TRUE)
 path_pipeline = sprintf("%s", args[1])
@@ -14,7 +14,7 @@ case_control_id_file = sprintf("%s", args[9])
 
 
 #-----------------------------------------------------
-#path_pipeline='/media/StorageOne/HTS/VirusSlayer'
+#path_pipeline='/media/StorageOne/HTS/VirusMeta'
 #path_to_project = '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq'
 #virus_by_index_file <- '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/PB/virus_final_index.csv'
 #case_control_id_file<- '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/case_control_id.txt'

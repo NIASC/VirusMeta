@@ -2,7 +2,7 @@
 
 
 export path_htsa_dir=/media/StorageOne/HTS #path to HTSA analysis dir
-export path_pipeline=VirusSlayer
+export path_pipeline=VirusMeta
 export Project_dir=$1
 export virus_index_file=$2
 export case_control_id=$3 #tab delimited file: column1 - index names; column2 - 1 if case and 0 if ctrl

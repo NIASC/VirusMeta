@@ -1,12 +1,12 @@
 #!/bin/sh
 
-#/media/StorageOne/HTS/VirusSlayer/ffp/ffp.sh /media/StorageOne/HTS/PublicData/nt_pb/family /media/StorageOne/HTS/PublicData/nt_pb/virus_step1_ffp_9 /media/StorageOne/HTS/PublicData/nt_pb/virus_genomes_ffp_9 9 /media/StorageOne/HTS/PublicData/nt_pb/ffp_9_final /media/StorageOne/HTS/PublicData/nt_pb/VIR_unique_taxa_1000.txt /media/StorageOne/HTS/PublicData/nt_pb/ssDNA_clean_list.txt genomes /media/StorageOne/HTS/PublicData/nt_pb/ssDNA_viruses_clean.gi
+#/media/StorageOne/HTS/VirusMeta/ffp/ffp.sh /media/StorageOne/HTS/PublicData/nt_pb/family /media/StorageOne/HTS/PublicData/nt_pb/virus_step1_ffp_9 /media/StorageOne/HTS/PublicData/nt_pb/virus_genomes_ffp_9 9 /media/StorageOne/HTS/PublicData/nt_pb/ffp_9_final /media/StorageOne/HTS/PublicData/nt_pb/VIR_unique_taxa_1000.txt /media/StorageOne/HTS/PublicData/nt_pb/ssDNA_clean_list.txt genomes /media/StorageOne/HTS/PublicData/nt_pb/ssDNA_viruses_clean.gi
 
-#/media/StorageOne/HTS/VirusSlayer/ffp/ffp.sh /media/StorageOne/HTS/PublicData/nt_pb/spot_new_viruses/family /media/StorageOne/HTS/PublicData/nt_pb/spot_new_viruses/test_ffp/virus_step1_ffp_9 /media/StorageOne/HTS/PublicData/nt_pb/spot_new_viruses/test_ffp/virus_genomes_ffp_9 9 /media/StorageOne/HTS/PublicData/nt_pb/spot_new_viruses/test_ffp/ffp_9_final /media/StorageOne/HTS/PublicData/taxdb_nt/VIR_taxa_final.txt /media/StorageOne/HTS/PublicData/nt_pb/spot_new_viruses/test_ffp/viruses_clean_gi_family_color.txt genomes /media/StorageOne/HTS/PublicData/nt_pb/spot_new_viruses/test_ffp/viruses_clean.gi
+#/media/StorageOne/HTS/VirusMeta/ffp/ffp.sh /media/StorageOne/HTS/PublicData/nt_pb/spot_new_viruses/family /media/StorageOne/HTS/PublicData/nt_pb/spot_new_viruses/test_ffp/virus_step1_ffp_9 /media/StorageOne/HTS/PublicData/nt_pb/spot_new_viruses/test_ffp/virus_genomes_ffp_9 9 /media/StorageOne/HTS/PublicData/nt_pb/spot_new_viruses/test_ffp/ffp_9_final /media/StorageOne/HTS/PublicData/taxdb_nt/VIR_taxa_final.txt /media/StorageOne/HTS/PublicData/nt_pb/spot_new_viruses/test_ffp/viruses_clean_gi_family_color.txt genomes /media/StorageOne/HTS/PublicData/nt_pb/spot_new_viruses/test_ffp/viruses_clean.gi
 
 
 export path_htsa_dir=/media/StorageOne/HTS #path to HTSA analysis dir
-export path_pipeline=VirusSlayer
+export path_pipeline=VirusMeta
 export family_dir=$1
 export step1_dir=$2
 export virus_genomes_ffp=$3

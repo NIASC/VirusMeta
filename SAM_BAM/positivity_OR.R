@@ -1,6 +1,6 @@
 
 
-#Rscript /media/StorageOne/HTS/VirusSlayer/SAM_BAM/positivity_OR.R /media/StorageOne/HTS/VirusSlayer /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/old/NR/nr_by_index.csv /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/old/aggregated_dir/self_blast_tmp/90.CLUSTER_BLAST.txt /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/234_by_year.txt /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/old/PB/nt_final.csv /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/old/NR/234_by_year_cluster_OR.csv /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/old/PB/234_by_year_nt_OR.csv /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/old/PB/234_virus_OR.csv 26 26 5
+#Rscript /media/StorageOne/HTS/VirusMeta/SAM_BAM/positivity_OR.R /media/StorageOne/HTS/VirusMeta /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/old/NR/nr_by_index.csv /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/old/aggregated_dir/self_blast_tmp/90.CLUSTER_BLAST.txt /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/234_by_year.txt /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/old/PB/nt_final.csv /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/old/NR/234_by_year_cluster_OR.csv /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/old/PB/234_by_year_nt_OR.csv /media/StorageOne/HTS/Projects/Project_2014_G_Hultin_MS/old/PB/234_virus_OR.csv 26 26 5
 
 
 args<-commandArgs(TRUE)
@@ -17,7 +17,7 @@ number_of_controls  = as.numeric(sprintf("%s", args[10]))
 positivity_cuttoff  = as.numeric(sprintf("%s", args[11]))
 
 #-----------------------------------------------------
-#path_pipeline='/media/StorageOne/HTS/VirusSlayer'
+#path_pipeline='/media/StorageOne/HTS/VirusMeta'
 #nr_by_index_file <- '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/NR/nr_by_index.csv'
 #CLUSTER_BLAST_file<- '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/aggregated_dir/self_blast_tmp/80.CLUSTER_BLAST.txt'
 #case_control_id_file<- '/media/StorageOne/HTS/Projects/2011_G5_96ALL-HiSeq/case_control_id.txt'

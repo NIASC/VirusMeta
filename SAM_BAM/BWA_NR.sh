@@ -15,7 +15,7 @@
 #   prepare files
 ##########################################################################################
 export path_htsa_dir=/media/StorageOne/HTS
-export path_pipeline=VirusSlayer
+export path_pipeline=VirusMeta
 export NR_dir=$1
 export path_to_work_fasta=$2
 export PAIR1=$3
@@ -63,7 +63,7 @@ awk '{x++}END{ print x}' $work_fasta.ID > nr_ref_$work_fasta.txt
 ######
 #awk '$2~/^99$|^147$|^83$|^163$|^67$|^131$|^115$|^179$|^81$|^161$|^97$|^145$|^65$|^129$|^113$|^177$/ && $2!~/^SN/ && $7!~/=/{print $1"\t"$3"\t"$7}' aln-pe.sam | sort -n -k1,1 -T $1 | uniq | awk 'BEGIN { FS="\t" } { c[$1]++; l[$1,c[$1]]=$0 } END { for (i in c) { if (c[i] > 1) for (j = 1; j <= c[i]; j++) print l[i,j] } }' | awk 'NR==FNR{a[$1,$2];next} ($1,$2) in a{print $0, a[$1,$2]}' $work_fasta.seq - | awk 'NR==FNR{a[$1,$2];next} ($1,$3) in a{print $0, a[$1,$2]}'  $work_fasta.seq  - > Linkage_info_v2.txt
 #TODO: too slow
-#python /media/storage/HTS/VirusSlayer/SAM_BAM/sam_linkage_claster.py Linkage_info_v2.txt cluter_by_sam.txt 
+#python /media/storage/HTS/VirusMeta/SAM_BAM/sam_linkage_claster.py Linkage_info_v2.txt cluter_by_sam.txt 
 ###################################  
 
 #remove working fasta

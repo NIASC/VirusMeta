@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#nohup /media/StorageOne/HTS/VirusSlayer/codon_usage/cutg_codon_usage.sh /media/StorageOne/HTS/Projects/test_cutg all_genbank
+#nohup /media/StorageOne/HTS/VirusMeta/codon_usage/cutg_codon_usage.sh /media/StorageOne/HTS/Projects/test_cutg all_genbank
 
 export path_htsa_dir=/media/StorageOne/HTS #path to HTSA analysis dir
-export path_pipeline=VirusSlayer
+export path_pipeline=VirusMeta
 export working_dir=$1
 export taxonomic_order=$2 #all_genbank or only_virus
 

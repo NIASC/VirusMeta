@@ -19,12 +19,12 @@ cd $FAP
 #
 
 scl enable python27 - << \EOF
-python /media/storage/HTS/VirusSlayer/seq_corret_module/stopcodon.py $FAP_FASTA > stopcodon.txt
+python /media/storage/HTS/VirusMeta/seq_corret_module/stopcodon.py $FAP_FASTA > stopcodon.txt
 EOF
 ################################################################
 #HPV select only coding sequences and also check unaligned parts#
 #################################################################
-Rscript /media/storage/HTS/VirusSlayer/seq_corret_module/FAPsegmenting.R $HPV_CSV
+Rscript /media/storage/HTS/VirusMeta/seq_corret_module/FAPsegmenting.R $HPV_CSV
 
 #################################################################
 #Extratc only filtered OK HPV sequences from pervious fasta file#
@@ -36,8 +36,8 @@ sed -i 's/ /\n/g' OK_HPV.fasta
 #Exract start and end segments for OK HPV fasta file#
 #####################################################
 scl enable python27 - << \EOF
-python /media/storage/HTS/VirusSlayer/seq_corret_module/seg_extract.py "start" OK_HPV.fasta seqment_start_id.txt seqment_start.fasta
-python /media/storage/HTS/VirusSlayer/seq_corret_module/seg_extract.py "end" OK_HPV.fasta seqment_end_id.txt seqment_end.fasta
+python /media/storage/HTS/VirusMeta/seq_corret_module/seg_extract.py "start" OK_HPV.fasta seqment_start_id.txt seqment_start.fasta
+python /media/storage/HTS/VirusMeta/seq_corret_module/seg_extract.py "end" OK_HPV.fasta seqment_end_id.txt seqment_end.fasta
 EOF
 
 
@@ -49,16 +49,16 @@ EOF
 (time /paracel/paracel/bin/pb blastall -p blastn -i seqment_end.fasta -d nt --dbpart=1 --querypart=11000  -b 10 -v 10 -r 1 -q -1 -G 0 -E 2 -e 0.1  -m 7 -I T -o seqment_end.blast_results.xml 2> seqment_end.blast_results.err) >& seqment_end.blast_results.time
 
 scl enable python27 - << \EOF
-python /media/storage/HTS/VirusSlayer/blast_module/run_parallel_xml_parser.py --input_file=seqment_start.blast_results.xml --result_file=start.blast_results --out_gi=start_gi.blast_results  --temp_directory=start_PB_tmp --jobs=70  >/dev/null 2>&1
-python /media/storage/HTS/VirusSlayer/blast_module/run_parallel_xml_parser.py --input_file=seqment_end.blast_results.xml --result_file=end.blast_results --out_gi=end_gi.blast_results  --temp_directory=end_PB_tmp --jobs=70  >/dev/null 2>&1
+python /media/storage/HTS/VirusMeta/blast_module/run_parallel_xml_parser.py --input_file=seqment_start.blast_results.xml --result_file=start.blast_results --out_gi=start_gi.blast_results  --temp_directory=start_PB_tmp --jobs=70  >/dev/null 2>&1
+python /media/storage/HTS/VirusMeta/blast_module/run_parallel_xml_parser.py --input_file=seqment_end.blast_results.xml --result_file=end.blast_results --out_gi=end_gi.blast_results  --temp_directory=end_PB_tmp --jobs=70  >/dev/null 2>&1
 EOF
 
 #taxonomy of segments
-/media/storage/HTS/VirusSlayer/public_programs/gi2tax/gi2tax  --input 'start_gi.blast_results' --output 'start_gi_tax' --database /media/storage/HTS/PublicData/taxdb_nt --nucleotide
+/media/storage/HTS/VirusMeta/public_programs/gi2tax/gi2tax  --input 'start_gi.blast_results' --output 'start_gi_tax' --database /media/storage/HTS/PublicData/taxdb_nt --nucleotide
 cat start_gi_tax | awk -F"," '{print $1,$0}' | awk '{print $1,$2}' > start_ALL_TAXONOMY.txt
 grep -i "Viruses" start_gi_tax | awk -F"," '{print $1,$4,$0}' | awk '{print $1,$2,$3}' > start_VIRAL_TAXONOMY.txt
 
-/media/storage/HTS/VirusSlayer/public_programs/gi2tax/gi2tax  --input 'end_gi.blast_results' --output 'end_gi_tax' --database /media/storage/HTS/PublicData/taxdb_nt --nucleotide
+/media/storage/HTS/VirusMeta/public_programs/gi2tax/gi2tax  --input 'end_gi.blast_results' --output 'end_gi_tax' --database /media/storage/HTS/PublicData/taxdb_nt --nucleotide
 cat end_gi_tax | awk -F"," '{print $1,$0}' | awk '{print $1,$2}' > end_ALL_TAXONOMY.txt
 grep -i "Viruses" end_gi_tax | awk -F"," '{print $1,$4,$0}' | awk '{print $1,$2,$3}' > end_VIRAL_TAXONOMY.txt
 
@@ -69,7 +69,7 @@ grep -i "Viruses" end_gi_tax | awk -F"," '{print $1,$4,$0}' | awk '{print $1,$2,
 ###!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!###
 #TODO here I need to decide what to do with segment annotations because do all the job and in the end I ignore results and trim all the segments 
 
-R CMD BATCH --no-save /media/storage/HTS/VirusSlayer/seq_corret_module/FAPsegment_annot.R
+R CMD BATCH --no-save /media/storage/HTS/VirusMeta/seq_corret_module/FAPsegment_annot.R
 ################################################
 #################################################################
 #Extratc only filtered OK HPV sequences from pervious fasta file#
@@ -79,7 +79,7 @@ sed -i 's/ /\n/g' GOOD_HPV.fasta
 
 #and trim unaligned parts
 scl enable python27 - << \EOF
-python /media/storage/HTS/VirusSlayer/seq_corret_module/seg_trim.py GOOD_HPV.fasta trim_seqment.txt tmp_corrected_GOOD_HPV.fasta
+python /media/storage/HTS/VirusMeta/seq_corret_module/seg_trim.py GOOD_HPV.fasta trim_seqment.txt tmp_corrected_GOOD_HPV.fasta
 EOF
 
 
@@ -125,22 +125,22 @@ rm OK_HPV.fasta
 #######################################################
 
 scl enable python27 - << \EOF
-python /media/storage/HTS/VirusSlayer/seq_corret_module/homopolymer_filter.py 11  tmp_corrected_GOOD_HPV.fasta > corrected_GOOD_HPV.fasta
+python /media/storage/HTS/VirusMeta/seq_corret_module/homopolymer_filter.py 11  tmp_corrected_GOOD_HPV.fasta > corrected_GOOD_HPV.fasta
 EOF
 
 ###################################
 #blast again corrtected fasta file#
 ###################################
 #TODO: cluster HPV sequences and then merge it with HPV.csv so you can group them
-/media/storage/HTS/VirusSlayer/public_programs/cd-hit/cd-hit-est -i corrected_GOOD_HPV.fasta -o cdhit_corrected_GOOD_HPV.fasta -d 100 -T 0 -r 1 -g 1 -c 0.90 -G 0 -aS 0.80 -G 0 -M 0
+/media/storage/HTS/VirusMeta/public_programs/cd-hit/cd-hit-est -i corrected_GOOD_HPV.fasta -o cdhit_corrected_GOOD_HPV.fasta -d 100 -T 0 -r 1 -g 1 -c 0.90 -G 0 -aS 0.80 -G 0 -M 0
 
 (time /paracel/paracel/bin/pb blastall -p blastn -i cdhit_corrected_GOOD_HPV.fasta -d nt --dbpart=1 --querypart=11000  -b 10 -v 10 -r 1 -q -1 -G 0 -E 2 -e 0.0001  -m 7 -I T -o final.blast_results.xml 2>final.blast_results.err) >& final.blast_results.time
 (time /paracel/paracel/bin/pb blastall -p blastn -i cdhit_corrected_GOOD_HPV.fasta -d HPV_ref_clone_coplete --dbpart=1 --querypart=11000  -b 10 -v 10 -r 1 -q -1 -G 0 -E 2 -e 0.0001 -m 7 -I T -o  complete_HPV.blast_results.xml 2>  complete_HPV.blast_results.err) >&  complete_HPV.blast_results.time
 
 
 scl enable python27 - << \EOF
-python /media/storage/HTS/VirusSlayer/blast_module/run_parallel_xml_parser.py --input_file=final.blast_results.xml --result_file=final.blast_results --out_gi=gi.blast_results  --temp_directory=virus_PB_tmp --jobs=70  >/dev/null 2>&1
-python /media/storage/HTS/VirusSlayer/blast_module/run_parallel_xml_parser.py --input_file=complete_HPV.blast_results.xml --result_file=complete_HPV.blast_results --out_gi=complete_HPV_gi.blast_results  --temp_directory=complete_HPV_PB_tmp --jobs=70  >/dev/null 2>&1
+python /media/storage/HTS/VirusMeta/blast_module/run_parallel_xml_parser.py --input_file=final.blast_results.xml --result_file=final.blast_results --out_gi=gi.blast_results  --temp_directory=virus_PB_tmp --jobs=70  >/dev/null 2>&1
+python /media/storage/HTS/VirusMeta/blast_module/run_parallel_xml_parser.py --input_file=complete_HPV.blast_results.xml --result_file=complete_HPV.blast_results --out_gi=complete_HPV_gi.blast_results  --temp_directory=complete_HPV_PB_tmp --jobs=70  >/dev/null 2>&1
 EOF
 
 #TODO here i need to sort it according to identity , so first I need file from from tmp:
@@ -175,11 +175,11 @@ write.csv(PB_all,"cdhit_corrected_GOOD_HPV.csv",row.names=F)
 R CMD BATCH --no-save corrected_GOOD_HPV.R
 
 
-$path_htsa_dir/VirusSlayer/seq_corret_module/custom_db_bast.sh $FAP/cdhit_corrected_GOOD_HPV.fasta $FAP/check_fasta_dir $FAP/custom_check_working_dir
-Rscript $path_htsa_dir/VirusSlayer/seq_corret_module/custom_know_new_sort.R $FAP/cdhit_corrected_GOOD_HPV.csv $FAP/custom_check_working_dir/custom_final.blast_results $FAP
+$path_htsa_dir/VirusMeta/seq_corret_module/custom_db_bast.sh $FAP/cdhit_corrected_GOOD_HPV.fasta $FAP/check_fasta_dir $FAP/custom_check_working_dir
+Rscript $path_htsa_dir/VirusMeta/seq_corret_module/custom_know_new_sort.R $FAP/cdhit_corrected_GOOD_HPV.csv $FAP/custom_check_working_dir/custom_final.blast_results $FAP
 
 ##############################################
-Rscript $path_htsa_dir/VirusSlayer/seq_corret_module/FAP_annotate_final.R $FAP/HPV.csv $FAP/complete_HPV.blast_results $path_htsa_dir/HPV_center/ref_clones.csv $path_htsa_dir/HPV_center/gi_accession_to_gi_number_translator $FAP
+Rscript $path_htsa_dir/VirusMeta/seq_corret_module/FAP_annotate_final.R $FAP/HPV.csv $FAP/complete_HPV.blast_results $path_htsa_dir/HPV_center/ref_clones.csv $path_htsa_dir/HPV_center/gi_accession_to_gi_number_translator $FAP
 
 #################################################################
 #Extratc final new and SE HPV sequences from pervious fasta file#
@@ -195,7 +195,7 @@ Rscript $path_htsa_dir/VirusSlayer/seq_corret_module/FAP_annotate_final.R $FAP/H
 #(time /paracel/paracel/bin/pb blastall -p blastn -i CORRECT.FASTA -d fap_HPV_ref_clone_coplete --dbpart=1 --querypart=11000  -b 10 -v 10 -r 1 -q -1 -G 0 -E 2 -e 0.0001  -m 7 -I T -o fap.blast_results.xml 2>fap.blast_results.err) >& fap.blast_results.time
 
 #scl enable python27 - << \EOF
-#python ../../VirusSlayer/blast_module/run_parallel_xml_parser.py --input_file=fap.blast_results.xml --result_file=fap.blast_results --out_gi=fap_gi.blast_results  --temp_directory=fap_PB_tmp --jobs=70  >/dev/null 2>&1
+#python ../../VirusMeta/blast_module/run_parallel_xml_parser.py --input_file=fap.blast_results.xml --result_file=fap.blast_results --out_gi=fap_gi.blast_results  --temp_directory=fap_PB_tmp --jobs=70  >/dev/null 2>&1
 #EOF
 
 #rm fap.blast_results.xml
@@ -207,7 +207,7 @@ Rscript $path_htsa_dir/VirusSlayer/seq_corret_module/FAP_annotate_final.R $FAP/H
 #################################################################################################################################################
 #################################################################################################################################################
 #select 3 prime end sequences
-#R CMD BATCH --no-save /media/storage/HTS/VirusSlayer/seq_corret_module/FAP_prime_end_sort.R
+#R CMD BATCH --no-save /media/storage/HTS/VirusMeta/seq_corret_module/FAP_prime_end_sort.R
 #cat new_HPV.fasta | awk 'BEGIN{RS=">"}NR>1{sub("\n","\t"); gsub("\n",""); print RS$0}' | awk -F"\t" '{gsub(">","",$1); print $1,$2}' |  awk 'NR==FNR{a[$1];next} ($1 in a) {print ">"$1,$2}' end3_id.txt - > new_HPV_3end.fasta
 #sed -i 's/ /\n/g' new_HPV_3end.fasta
 #################################################################################################################################################

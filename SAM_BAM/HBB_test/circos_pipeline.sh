@@ -1,12 +1,12 @@
 #!/bin/sh
-# /media/StorageOne/HTS/VirusSlayer/SAM_BAM/HBB_test/circos_pipeline.sh /media/StorageOne/HTS/Projects/2013_H5_RNA-NMSC_v3 /media/StorageOne/HTS/Projects/2013_H5_RNA-NMSC_v3/CaskiRNA.read1.fastq.gz /media/StorageOne/HTS/Projects/2013_H5_RNA-NMSC_v3/CaskiRNA.read2.fastq.gz
+# /media/StorageOne/HTS/VirusMeta/SAM_BAM/HBB_test/circos_pipeline.sh /media/StorageOne/HTS/Projects/2013_H5_RNA-NMSC_v3 /media/StorageOne/HTS/Projects/2013_H5_RNA-NMSC_v3/CaskiRNA.read1.fastq.gz /media/StorageOne/HTS/Projects/2013_H5_RNA-NMSC_v3/CaskiRNA.read2.fastq.gz
 ##########################
 export project_work_dir=$1
 export path_htsa_dir=/media/StorageOne/HTS
 export PAIR1=$2
 export PAIR2=$3
 ##########################
-cp -r $path_htsa_dir/VirusSlayer/SAM_BAM/HBB_test  $project_work_dir/HBB_test
+cp -r $path_htsa_dir/VirusMeta/SAM_BAM/HBB_test  $project_work_dir/HBB_test
 ##
 if [ -f $project_work_dir/HBB_test/data/histogram.txt ];
 then
@@ -31,7 +31,7 @@ fi
 ###
 cd $project_work_dir/HBB_test
 
-#$path_htsa_dir/VirusSlayer/SAM_BAM/BWA_NR.sh $project_work_dir/HBB_map $project_work_dir/HBB_test/HBB.fasta $2 $3
+#$path_htsa_dir/VirusMeta/SAM_BAM/BWA_NR.sh $project_work_dir/HBB_map $project_work_dir/HBB_test/HBB.fasta $2 $3
 
 ##########################################################################################
 #   prepare files
@@ -59,7 +59,7 @@ cd $project_work_dir/HBB_map
 /usr/local/bin/samtools view -@ 20 aln-pe.sorted.bam  | cut -f1,2,3,4,8,5,9 > $work_fasta.txt
 
 #scl enable python27 - << \EOF
-python $path_htsa_dir/VirusSlayer/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
+python $path_htsa_dir/VirusMeta/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
 #EOF
 
 cd $project_work_dir/HBB_test
@@ -97,4 +97,4 @@ write.table(position_coverage,"data/histogram.txt", row.names=F, col.names=F, qu
 
 R CMD BATCH --no-save histogram_format.R
 
-perl $path_htsa_dir/VirusSlayer/public_programs/circos-0.67/bin/circos  -conf etc/circos.conf
+perl $path_htsa_dir/VirusMeta/public_programs/circos-0.67/bin/circos  -conf etc/circos.conf

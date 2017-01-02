@@ -55,7 +55,7 @@ for i in {1..100} ; do
 done > intree_boot
 #https://umbc.rnet.missouri.edu/resources/How2RunPHYLIP.html
 #cp test.dat infile protpars < options.in
-#/media/StorageOne/HTS/VirusSlayer/public_programs/phylip-3.696/exe/consense
+#/media/StorageOne/HTS/VirusMeta/public_programs/phylip-3.696/exe/consense
 
 #https://www.biostars.org/p/9511/
 library(ape)

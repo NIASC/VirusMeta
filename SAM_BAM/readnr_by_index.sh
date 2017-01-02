@@ -62,7 +62,7 @@ awk 'NR==FNR{ hash[$1]=$3;next} ($1) in hash{print $0, hash[$1]}' $work_dir/sam_
 
 ###########################################################################################################################################
 #scl enable python27 - << \EOF
-#python /media/storage/HTS/VirusSlayer/SAM_BAM/qi_by_index.py $work_dir/index_info_pair1.txt $work_dir/index_info_pair2.txt $work_dir/qi_by_index_pair.txt
+#python /media/storage/HTS/VirusMeta/SAM_BAM/qi_by_index.py $work_dir/index_info_pair1.txt $work_dir/index_info_pair2.txt $work_dir/qi_by_index_pair.txt
 #EOF
 cat $work_dir/index_info_pair1.txt $work_dir/index_info_pair2.txt > $work_dir/index_info.txt
 #

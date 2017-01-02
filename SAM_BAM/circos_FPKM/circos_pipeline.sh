@@ -1,10 +1,10 @@
 
-# /media/StorageOne/HTS/VirusSlayer/SAM_BAM/circos_FPKM/circos_pipeline_v2.sh /media/storage/HTS/Projects/2013_H7_RNA-2libr /media/storage/HTS/Projects/2013_H7_RNA-2libr/diginorm/read_1.fastq /media/storage/HTS/Projects/2013_H7_RNA-2libr/diginorm/read_2.fastq
+# /media/StorageOne/HTS/VirusMeta/SAM_BAM/circos_FPKM/circos_pipeline_v2.sh /media/storage/HTS/Projects/2013_H7_RNA-2libr /media/storage/HTS/Projects/2013_H7_RNA-2libr/diginorm/read_1.fastq /media/storage/HTS/Projects/2013_H7_RNA-2libr/diginorm/read_2.fastq
 ##########################
 export project_work_dir=$1
 export path_htsa_dir=/media/storage/HTS
 ##########################
-cp -r $path_htsa_dir/VirusSlayer/SAM_BAM/beta_actine_test  $1/beta_actine_test
+cp -r $path_htsa_dir/VirusMeta/SAM_BAM/beta_actine_test  $1/beta_actine_test
 ##
 if [ -f $1/beta_actine_test/data/histogram.txt ];
 then
@@ -29,7 +29,7 @@ fi
 ###
 cd $project_work_dir/beta_actine_test
 
-#$path_htsa_dir/VirusSlayer/SAM_BAM/BWA_NR.sh $1/b_actine_map $1/beta_actine_test/b_actine.fasta $2 $3
+#$path_htsa_dir/VirusMeta/SAM_BAM/BWA_NR.sh $1/b_actine_map $1/beta_actine_test/b_actine.fasta $2 $3
 
 ##########################################################################################
 #   prepare files
@@ -57,7 +57,7 @@ cd $1/b_actine_map
 /usr/local/bin/samtools view -@ 70 aln-pe.sorted.bam  | cut -f1,2,3,4,8,5,9 > $work_fasta.txt
 
 scl enable python27 - << \EOF
-python /media/storage/HTS/VirusSlayer/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
+python /media/storage/HTS/VirusMeta/SAM_BAM/translate_pysam.py $work_fasta.txt  sam_final_$work_fasta.txt unmapped_$work_fasta.txt nr_ref_$work_fasta.txt
 EOF
 
 cd $project_work_dir/beta_actine_test
@@ -95,4 +95,4 @@ write.table(position_coverage,"data/histogram.txt", row.names=F, col.names=F, qu
 
 R CMD BATCH --no-save histogram_format.R
 
-perl /media/storage/HTS/VirusSlayer/public_programs/circos-0.64/bin/circos  -conf etc/circos.conf
+perl /media/storage/HTS/VirusMeta/public_programs/circos-0.64/bin/circos  -conf etc/circos.conf
