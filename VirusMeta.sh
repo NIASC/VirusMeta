@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ########################
-#nohup ./virus_slayer-v2.sh 2014_G7_MSNEW2 nextseq UNBIASED DNA /media/StorageTwo/blc_2014_G7_MSNEW2/Data/Intensities/BaseCalls > 2014_G7_MSNEW2.log
+#nohup ./VirusMeta.sh 2014_G7_MSNEW2 nextseq UNBIASED DNA /media/StorageTwo/blc_2014_G7_MSNEW2/Data/Intensities/BaseCalls > 2014_G7_MSNEW2.log
 
 ########################
 #cwd=$(pwd)   #get current home directory 
