@@ -1,18 +1,15 @@
 #!/bin/sh
 
 ########################
-#nohup ./VirusMeta.sh 2014_G7_MSNEW2 nextseq UNBIASED DNA /media/StorageTwo/blc_2014_G7_MSNEW2/Data/Intensities/BaseCalls > 2014_G7_MSNEW2.log
+#nohup ./VirusMeta.sh /media/StorageOne/HTS VirusMeta 2014_G7_MSNEW2 nextseq UNBIASED DNA /media/StorageTwo/blc_2014_G7_MSNEW2/Data/Intensities/BaseCalls > 2014_G7_MSNEW2.log
 
-########################
-#cwd=$(pwd)   #get current home directory 
-
-export path_htsa_dir=/media/StorageOne/HTS #path to HTSA analysis dir
-export path_pipeline=VirusMeta
-export Project_name=$1
-export platform=$2
-export sequencing_type=$3 #unbiased or PCR
-export DNA_RNA=$4
-export seq_data_dir=$5
+export path_htsa_dir=$1 #path to HTSA analysis dir
+export path_pipeline=$2
+export Project_name=$3
+export platform=$4
+export sequencing_type=$5 #unbiased or PCR
+export DNA_RNA=$6
+export seq_data_dir=$7
 export project_work_dir=$path_htsa_dir/Projects/$1
 
 ########################
