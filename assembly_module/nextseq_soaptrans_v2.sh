@@ -45,7 +45,7 @@ q2=$PAIR2
 for kmer in 31 27 25; do #23 21 19
     mkdir $kmer
     cd $kmer
-    $path_htsa_dir/$path_pipeline/public_programs/SOAPdenovo-Trans/SOAPdenovo-Trans-31mer  all -s ../soap.config.txt -K $kmer -R -o $kmer 1 >ass.log 2 > ass.err
+    SOAPdenovo-Trans-31mer  all -s ../soap.config.txt -K $kmer -R -o $kmer 1 >ass.log 2 > ass.err
     #Remove large inermediate files
     rm $kmer.agp
     rm $kmer.ctg2Read

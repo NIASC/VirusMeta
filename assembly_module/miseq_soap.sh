@@ -42,7 +42,7 @@ q2=$diginorm_work_dir/read_2.fastq
 for kmer in 51 47 43; do #63 59 55 
     mkdir $kmer
     cd $kmer
-    $path_htsa_dir/$path_pipeline/public_programs/SOAPdenovo2/SOAPdenovo-63mer  all -s ../soap.config.txt -K $kmer -R -p 80 -o $kmer 1 >ass.log 2 > ass.err
+    SOAPdenovo-63mer  all -s ../soap.config.txt -K $kmer -R -p 80 -o $kmer 1 >ass.log 2 > ass.err
     #Remove large inermediate files
     rm $kmer.Arc
     rm $kmer.ContigIndex
