@@ -1,0 +1,25 @@
+#!/bin/bash
+
+export path_htsa_dir=/media/StorageOne/HTS
+export path_pipeline=viralmeta_bioifo
+
+(time /paracel/paracel/bin/pb megablast -i NON_HUMAN_EST.fasta -d HG --dbpart=1 --querypart=11000  -b 10 -v 10  -e 0.0001 -m 7 -I T -o HG.out 2>HG.err) >& HG.time
+
+python $path_htsa_dir/$path_pipeline/blast_module/run_parallel_xml_parser.py --input_file=HG.out --result_file=HG_final.blast_results --out_gi=HG_gi.blast_results  --temp_directory=HG_tmp --jobs=70
+
+cat HG_final.blast_results |   awk -F"@" '{if($3>=90 && $4 >=75) {print $1}}'  | sort -k1,1 | awk '!x[$1]++' > HG
+
+cat NON_HUMAN_EST.fasta | awk 'BEGIN{RS=">"}NR>1{sub("\n","\t"); gsub("\n",""); print RS$0}' | awk -F"\t" '{gsub(">","",$1); print $1,$2}' | awk 'NR==FNR{a[$1];next} !($1 in a) {print ">"$1,$2}' HG - > NON_HG.fasta
+sed -i 's/ /\n/g' NON_HG.fasta
+
+rm -rf HG_tmp
+rm -f  HG.out
+rm -f  HG.err
+rm -f  HG.time
+rm -f HG_final.blast_results
+rm -f HG_gi.blast_results
+rm -f NON_HUMAN_EST.fasta
+
+
+
+

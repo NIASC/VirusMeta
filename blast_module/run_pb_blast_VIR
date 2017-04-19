@@ -1,0 +1,26 @@
+#!/bin/bash
+
+(time /paracel/paracel/bin/pb blastall -p blastn -i $1 -d VIR --dbpart=1 --querypart=11000  -b 10 -v 10 -r 1 -q -1 -G 0 -E 2 -e 0.001  -m 7 -I T -o VIR_NT.out 2>VIR_NT.err) >& VIT_NT.time
+
+
+scl enable python27 - << \EOF 
+python /media/storage/HTS/viralmeta_bioifo/blast_module/run_parallel_xml_parser.py --input_file=VIR_NT.out --result_file=vir_final.blast_results --out_gi=vir_gi.blast_results  --temp_directory=vir_tmp --jobs=70 >/dev/null 2>&1
+EOF
+
+#selct sequences all sequences which gave hits to viruses
+cat vir_final.blast_results | awk -F"@" '{print $1}' | sort -k1,1 | awk '!x[$1]++' > VIRAL_SEQ_ID
+
+cat $1 | awk 'BEGIN{RS=">"}NR>1{sub("\n","\t"); gsub("\n",""); print RS$0}' | awk -F"\t" '{gsub(">","",$1); print $1,$2}' | awk 'NR==FNR{a[$1];next} ($1 in a) {print ">"$1,$2}' VIRAL_SEQ_ID - > VIRAL_SEQ.fasta
+
+sed -i 's/ /\n/g' VIRAL_SEQ.fasta #brake lines in empty string 
+
+
+rm -rf vir_tmp
+rm -f VIT_NT.out
+rm -f vir_gi.blast_results
+rm vir_final.blast_results
+rm VIR_NT.err
+rm VIR_NT.out
+rm VIT_NT.time
+
+

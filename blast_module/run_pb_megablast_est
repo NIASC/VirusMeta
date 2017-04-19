@@ -1,0 +1,38 @@
+#!/bin/bash
+
+export path_htsa_dir=/media/StorageOne/HTS
+
+(time /paracel/paracel/bin/pb megablast -i $1 -d EST --dbpart=1 --querypart=11000  -b 10 -v 10  -e 0.0001 -m 7 -I T -o EST.out 2> EST.err) >& EST.time
+
+
+python $path_htsa_dir/viralmeta_bioifo/blast_module/run_parallel_xml_parser.py  --input_file=EST.out --result_file=est_final.blast_results --out_gi=est_gi.blast_results  --temp_directory=est_tmp --jobs=70 >/dev/null 2>&1
+
+
+#selct sequences with 95% identity over 75% of their length HUMAN est, sort and deduplicate 
+cat est_final.blast_results |  awk -F"@" '{if($3>=90 && $4 >=75) {print $1}}' | sort -k1,1 | awk '!x[$1]++' > HUMAN_EST
+
+cat $1 | awk 'BEGIN{RS=">"}NR>1{sub("\n","\t"); gsub("\n",""); print RS$0}' | awk -F"\t" '{gsub(">","",$1); print $1,$2}' | awk 'NR==FNR{a[$1];next} !($1 in a) {print ">"$1,$2}' HUMAN_EST - > NON_HUMAN_EST.fasta
+#The cat command will print the file content (to STDOUT).
+#The paste command will join the two lines of a FASTA entry into a single line, each original line separated by a tab.
+#NR==FNR # Only true when in the first file 
+#{
+#    a[$1] # Build assicioative array on the first column of the file
+#    next  # Skip all proceeding blocks and process next line
+#}
+#!($1 in a) # Check in the value in column one of the second files is in the array
+#{
+#    # If not print it
+#    print $1 $2 from bla1.txt
+#}
+##If you want to match the whole lines then use $0:
+#awk 'NR==FNR{a[$0];next}$0 in a{print $0}' file1 file2
+sed -i 's/ /\n/g' NON_HUMAN_EST.fasta #brake lines in empty string 
+
+#remove working files
+rm -rf est_tmp
+rm -f  EST.out
+rm -f  EST.err
+rm -f  EST.time
+rm -f est_final.blast_results
+rm -f est_gi.blast_results
+

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+export path_to_pipeline=$1
+
+(time /paracel/paracel/bin/pb blastall -p blastn -i NON_HG.fasta -d nt --dbpart=1 --querypart=11000  -b 10 -v 10 -r 1 -q -1 -G 0 -E 2 -e 0.0001  -m 7 -I T -o PB_NT.out 2>PB_NT.err) >& PB_NT.time
+
+
+python $path_to_pipeline/blast_module/run_parallel_xml_parser.py --input_file=PB_NT.out --result_file=final.blast_results --out_gi=gi.blast_results  --temp_directory=pbNT_tmp --jobs=70  >/dev/null 2>&1
+
+
+rm -rf pbNT_tmp
+rm PB_NT.err
+rm PB_NT.out
+rm PB_NT.time
