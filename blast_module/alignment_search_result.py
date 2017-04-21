@@ -106,6 +106,7 @@ class BlastParser(object):
                 except TypeError:
                     identity = None
                 
+                #Coverage is expressed as percent of length of the smaler sequences covereded in the pairwise allignment
                 Coverage = None  
                 try:
                     if subject_length > query_length: 
