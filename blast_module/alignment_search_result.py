@@ -109,7 +109,7 @@ class BlastParser(object):
                 #Coverage is expressed as percent of length of the smaler sequences covereded in the pairwise allignment
                 Coverage = None  
                 try:
-                    if subject_length > query_length: 
+                    if subject_length > query_length or subject_length == query_length: 
                        Coverage = float(100*(((query_end-query_start)+1)))/float(query_length) 
                     elif subject_length < query_length: 
                        Coverage = float(100*(((subject_end-subject_start)+1)))/float(subject_length) 
