@@ -106,7 +106,7 @@ class BlastParser(object):
                 except TypeError:
                     identity = None
                 
-                Coverage = None  # TODO why it is necessary to put this here??
+                Coverage = None  
                 try:
                     if subject_length > query_length: 
                        Coverage = float(100*(((query_end-query_start)+1)))/float(query_length) 
@@ -115,7 +115,12 @@ class BlastParser(object):
                 except TypeError:
                       Coverage = None
                 
-                blast_match_chimera = None  # TODO why it is necessary to put this here??
+                ########################################################
+                #This algorithm is usable only for HPV related contigs 
+                #To check wheather assembled contig is chimeric or not 
+                #and takes assumtions that similarty to the subject sequences
+                #should be evenly distribured
+                blast_match_chimera = None  
                 try:
                     identity_list = []
                     match_array = hsp.match
@@ -132,6 +137,7 @@ class BlastParser(object):
                        blast_match_chimera = "No"
                 except TypeError:
                       blast_match_chimera = None
+                ########################################################
 
 
                 match_parts.append({
