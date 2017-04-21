@@ -1,3 +1,7 @@
+#
+# Created by davbzh on 2013-08-14.
+#
+
 from Bio import SeqIO
 from Bio.Blast import NCBIXML
 from collections import defaultdict
