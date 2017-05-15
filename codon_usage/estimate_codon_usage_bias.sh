@@ -1,7 +1,7 @@
 #!/bin/sh
 
 export path_htsa_dir=/media/StorageOne/HTS #path to HTSA analysis dir
-export path_pipeline=viralmeta_bioifo
+export path_pipeline=VirusMeta
 
 work_file_directory=$1
 fasta_file=$2
