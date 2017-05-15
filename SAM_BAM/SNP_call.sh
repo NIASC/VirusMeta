@@ -34,6 +34,7 @@ export disambiguate=$path_htsa_dir/$path_pipeline/some_scripts/disambiguate.py
 export CIRCOS_ORF=$path_htsa_dir/$path_pipeline/circos_plot_ORFs/circos_pipeline.sh
 export GATK_bin=$path_htsa_dir/$path_pipeline/SAM_BAM/bin/GenomeAnalysisTK.jar
 export picard_bin=$path_htsa_dir/$path_pipeline/SAM_BAM/bin/CreateSequenceDictionary.jar
+export pcr_primers=$path_htsa_dir/$path_pipeline/PCR_PRIMERS/FAP/EklundHPV16.fa
 ##########################################################################################
 #   tunable options
 ##########################################################################################
@@ -74,7 +75,9 @@ then
    ########
    tmp_work_fasta="${work_fasta%%.*}" 
    dict_file=$tmp_work_fasta.dict
-   analysisBAM=aln-pe.sorted.bam
+   #https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_gatk_tools_walkers_readutils_ClipReads.php
+   java -jar $GATK_bin -T ClipReads -R $work_fasta -I aln-pe.sorted.bam -o clipped.bam -XF $pcr_primers -CT "1-5,11-15" -QT 10
+   analysisBAM=clipped.bam
 
    java -jar $picard_bin REFERENCE=$virus_sequence OUTPUT=$dict_file TRUNCATE_NAMES_AT_WHITESPACE=true NUM_SEQUENCES=2147483647 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false
    java -jar $GATK_bin -T RealignerTargetCreator -I $analysisBAM -R $virus_sequence -o $analysisBAM.intervals
