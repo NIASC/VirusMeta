@@ -75,11 +75,10 @@ then
    ########
    tmp_work_fasta="${work_fasta%%.*}" 
    dict_file=$tmp_work_fasta.dict
+   java -jar $picard_bin REFERENCE=$virus_sequence OUTPUT=$dict_file TRUNCATE_NAMES_AT_WHITESPACE=true NUM_SEQUENCES=2147483647 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false
    #https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_gatk_tools_walkers_readutils_ClipReads.php
    java -jar $GATK_bin -T ClipReads -R $work_fasta -I aln-pe.sorted.bam -o clipped.bam -XF $pcr_primers -CT "1-5,11-15" -QT 10
    analysisBAM=clipped.bam
-
-   java -jar $picard_bin REFERENCE=$virus_sequence OUTPUT=$dict_file TRUNCATE_NAMES_AT_WHITESPACE=true NUM_SEQUENCES=2147483647 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false
    java -jar $GATK_bin -T RealignerTargetCreator -I $analysisBAM -R $virus_sequence -o $analysisBAM.intervals
    java -jar $GATK_bin -T IndelRealigner --targetIntervals $analysisBAM.intervals -I $analysisBAM -R $virus_sequence --out alignment.sorted.realigned.bam
    java -jar $GATK_bin -T UnifiedGenotyper  -R $virus_sequence -glm BOTH -I alignment.sorted.realigned.bam -o mutation-raw.vcf -metrics mutation-raw.metrics -stand_call_conf 50.0 -stand_emit_conf 10.0 -dcov 500 -A AlleleBalance
